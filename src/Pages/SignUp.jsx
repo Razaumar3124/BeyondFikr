@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import logo1 from "../assets/logo/logo2.png"
 import { Link } from 'react-router';
 import gsap from 'gsap';
+import VisibilityInputField from '../Utils/VisibilityInputField';
 
 const SignUp = () => {
     const theme = useTheme();
@@ -179,81 +180,9 @@ const SignUp = () => {
                             }}
                         />
 
-                        <TextField
-                            ref={addToRefs}
-                            label="Password"
-                            variant="outlined"
-                            fullWidth
-                            type="password"
-                            required
-                            InputProps={{
-                                sx: {
-                                    color: "white",
-                                    '& input::placeholder': {
-                                        color: `${theme.palette.custom.theme1}`,
-                                        opacity: 1,
-                                    },
-                                    '& .MuiOutlinedInput-notchedOutline': {
-                                        borderColor: `${theme.palette.custom.theme1}`,
-                                    },
-                                    '&:hover .MuiOutlinedInput-notchedOutline': {
-                                        borderColor: `${theme.palette.custom.theme1}`,
-                                    },
-                                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                        borderColor: `${theme.palette.custom.theme1}`,
-                                    }
-                                }
-                            }}
-                            InputLabelProps={{
-                                sx: {
-                                    color: `${theme.palette.custom.theme1}`,
-                                    '&.Mui-focused': {
-                                        color: `${theme.palette.custom.theme1}`,
-                                    },
-                                    '&:hover': {
-                                        color: `${theme.palette.custom.theme1}`,
-                                    }
-                                }
-                            }}
-                        />
-
-                        <TextField
-                            ref={addToRefs}
-                            label="Confirm Password"
-                            variant="outlined"
-                            fullWidth
-                            type="password"
-                            required
-                            InputProps={{
-                                sx: {
-                                    color: "white",
-                                    '& input::placeholder': {
-                                        color: `${theme.palette.custom.theme1}`,
-                                        opacity: 1,
-                                    },
-                                    '& .MuiOutlinedInput-notchedOutline': {
-                                        borderColor: `${theme.palette.custom.theme1}`,
-                                    },
-                                    '&:hover .MuiOutlinedInput-notchedOutline': {
-                                        borderColor: `${theme.palette.custom.theme1}`,
-                                    },
-                                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                        borderColor: `${theme.palette.custom.theme1}`,
-                                    }
-                                }
-                            }}
-                            InputLabelProps={{
-                                sx: {
-                                    color: `${theme.palette.custom.theme1}`,
-                                    '&.Mui-focused': {
-                                        color: `${theme.palette.custom.theme1}`,
-                                    },
-                                    '&:hover': {
-                                        color: `${theme.palette.custom.theme1}`,
-                                    }
-                                }
-                            }}
-                        />
+                        <VisibilityInputField props={{ addToRefs ,textlabel: "Password *"}} />
+                        
+                        <VisibilityInputField props={{ addToRefs ,textlabel: "Confirm Password *"}}/>
 
                         <FormControlLabel
                             control={
