@@ -1,6 +1,7 @@
 import { Typography, Box, TextField, Button, Checkbox, FormControlLabel, useTheme, InputLabel, OutlinedInput, IconButton, InputAdornment } from '@mui/material'
 import React, { useEffect, useRef } from 'react'
 import logo1 from "../assets/logo/logo2.png"
+import loginimg from "../assets/login_signup_imgs/loginimg4.jpg"
 import { Link } from 'react-router';
 import gsap from 'gsap';
 import VisibilityInputField from '../Utils/VisibilityInputField';
@@ -15,8 +16,8 @@ const Login = () => {
 
   useEffect(() => {
     const setVh = () => {
-        const vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      const vh = (window.visualViewport?.height || window.innerHeight) * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
     };
     setVh();
     window.addEventListener('resize', setVh);
@@ -65,15 +66,6 @@ const Login = () => {
         ease: "bounce.out"
     }, "-=0.4");
 
-    // Continuous subtle animation for the form border
-    gsap.to(formRef.current, {
-        duration: 5,
-        boxShadow: `0 0 15px ${theme.palette.custom.theme1}`,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-    });
-
     return () => {
         window.removeEventListener('resize', setVh);
         tl.kill();
@@ -102,7 +94,6 @@ const Login = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100%"
       }}>
         <Box ref={formRef} component="form" sx={{
             width: { xs: "90%", sm: "70%", md: "50%", lg: "70%" },
@@ -170,7 +161,7 @@ const Login = () => {
               }}
             />  
 
-          <VisibilityInputField props={{ addToRefs ,textlabel: "Password *"}}/>
+          <VisibilityInputField props={{ addToRefs ,textlabel: "Password"}}/>
 
             <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
               <FormControlLabel
@@ -227,11 +218,19 @@ const Login = () => {
       </Box>
       <Box sx={{
         width: { lg: "50%" },
-        border: "1px solid red",
+        // border: "1px solid red",
         borderRadius: "10px",
-        height: "100%"
+        height: "100%",
+        display: {xs: "none",lg: "flex"},
+        justifyContent: "center",
+        alignItems: "center"
       }}>
-        {/* Add any form or content here */}
+        <Box
+          component="img"
+          src={loginimg}
+          alt='Login Img'
+          sx={{display: {xs: "none",lg: "block"},width: {lg: "99%"},height: {lg: "99%"},borderRadius: "10px"}}
+        />
       </Box>
     </Box>
   )

@@ -27,6 +27,7 @@ const VisibilityInputField = ({ props }) => {
       type={showPassword ? 'text' : 'password'}
       label={textlabel}
       ref={addToRefs}
+      required
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">

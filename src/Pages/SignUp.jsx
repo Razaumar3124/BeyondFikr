@@ -1,6 +1,7 @@
 import { Typography, Box, TextField, Button, Checkbox, FormControlLabel, useTheme } from '@mui/material'
 import React, { useEffect, useRef } from 'react'
 import logo1 from "../assets/logo/logo2.png"
+import signupimg from "../assets/login_signup_imgs/signupimg1.png"
 import { Link } from 'react-router';
 import gsap from 'gsap';
 import VisibilityInputField from '../Utils/VisibilityInputField';
@@ -16,7 +17,7 @@ const SignUp = () => {
     // Initialize animations
     useEffect(() => {
         const setVh = () => {
-            const vh = window.innerHeight * 0.01;
+            const vh = (window.visualViewport?.height || window.innerHeight) * 0.01;
             document.documentElement.style.setProperty('--vh', `${vh}px`);
         };
         setVh();
@@ -66,15 +67,6 @@ const SignUp = () => {
             ease: "bounce.out"
         }, "-=0.4");
 
-        // Continuous subtle animation for the form border
-        gsap.to(formRef.current, {
-            duration: 5,
-            boxShadow: `0 0 15px ${theme.palette.custom.theme1}`,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut"
-        });
-
         return () => {
             window.removeEventListener('resize', setVh);
             tl.kill();
@@ -104,7 +96,12 @@ const SignUp = () => {
                 borderRadius: "10px",
                 height: "100%"
             }}>
-                {/* Add any form or content here */}
+                <Box
+                component="img"
+                src={signupimg}
+                alt='Login Img'
+                sx={{display: {xs: "none",lg: "block"},width: {lg: "99%"},height: {lg: "99%"},borderRadius: "10px"}}
+                />
             </Box>
             <Box sx={{
                 width: { xs: "100%", lg: "50%" },
@@ -180,9 +177,9 @@ const SignUp = () => {
                             }}
                         />
 
-                        <VisibilityInputField props={{ addToRefs ,textlabel: "Password *"}} />
+                        <VisibilityInputField props={{ addToRefs ,textlabel: "Password"}} />
                         
-                        <VisibilityInputField props={{ addToRefs ,textlabel: "Confirm Password *"}}/>
+                        <VisibilityInputField props={{ addToRefs ,textlabel: "Confirm Password"}}/>
 
                         <FormControlLabel
                             control={
