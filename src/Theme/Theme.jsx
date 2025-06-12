@@ -3,7 +3,7 @@ import { createTheme } from "@mui/material";
 const theme = createTheme({
     palette: {
         custom: {
-            theme1: "skyblue"
+            theme1: "rgb(48,107,115)"
         }
     }
 })

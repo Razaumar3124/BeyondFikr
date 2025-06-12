@@ -1,6 +1,6 @@
 import { Typography, Box, TextField, Button, Checkbox, FormControlLabel, useTheme } from '@mui/material'
 import React, { useEffect, useRef } from 'react'
-import logo1 from "../assets/logo/logo2.png"
+import logo1 from "../assets/logo/logo5.png"
 import signupimg from "../assets/login_signup_imgs/signupimg1.png"
 import { Link } from 'react-router';
 import gsap from 'gsap';
@@ -82,7 +82,6 @@ const SignUp = () => {
 
     return (
         <Box ref={containerRef} sx={{
-            bgcolor: "black",
             height: "calc(var(--vh, 1vh) * 100)",
             width: "100%",
             display: "flex",
@@ -92,8 +91,6 @@ const SignUp = () => {
         }}>
             <Box sx={{
                 width: { lg: "50%" },
-                border: "1px solid",
-                borderRadius: "10px",
                 height: "100%"
             }}>
                 <Box
@@ -112,8 +109,8 @@ const SignUp = () => {
                 height: "100%"
             }}>
                 <Box ref={formRef} component="form" sx={{
+                    border: "1px solid rgb(48,107,115)",
                     width: { xs: "90%", sm: "70%", md: "50%", lg: "70%" },
-                    boxShadow: `0 0 15px 10px ${theme.palette.custom.theme1}`,
                     borderRadius: "10px",
                     display: "flex",
                     flexDirection: "column",
@@ -121,7 +118,7 @@ const SignUp = () => {
                     alignItems: "center",
                     padding: { xs: "30px 10px", sm: "15px", md: "20px", lg: "20px" },
                     willChange: "transform, opacity",
-                    backgroundColor: "rgba(255, 255, 255, 0.2)",
+                    backgroundColor: "rgba(48,107,115,0.1)",
                     backdropFilter: "blur(100px)", // This adds blur behind the box, including border
                     WebkitBackdropFilter: "blur(100px)",
                 }}>
@@ -130,7 +127,7 @@ const SignUp = () => {
                         component="img"
                         src={logo1}
                         alt="Description"
-                        sx={{ width: { xs: "70%", sm: "60%", lg: "50%" }, height: { xs: "10%" }, cursor: "not-allowed" }}
+                        sx={{ width: { xs: "35%", sm: "35%", lg: "35%" }, height: { xs: "10%" }, cursor: "not-allowed" }}
                     />
 
                     <Box sx={{ color: `${theme.palette.custom.theme1}`, padding: "0px 20px", display: "flex", flexDirection: "column", alignItems: "center" }}>

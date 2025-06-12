@@ -1,0 +1,94 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "username": "Rahul",
+            "password": "Rahul@123",
+            "email": "prahulk212@gmail.com",
+            "contact": "7575878765",
+            "userId": 1739101334407,
+            "isAdmin": true
+        },
+        {
+            "id": "2",
+            "username": "Tejas Deshmukh",
+            "password": "`Tejas@123`",
+            "email": "Tejas2501@gmail.com",
+            "contact": "9876543210",
+            "userId": 1739101483234,
+            "isAdmin": false
+        },
+        {
+            "id": "3",
+            "username": "Anjali",
+            "password": "Anjali@123",
+            "email": "panjali0902@gmail.com",
+            "contact": "8888855555",
+            "userId": 1739101709875,
+            "isAdmin": true
+        },
+        {
+            "id": "4",
+            "username": "Amit Shah",
+            "password": "Amit@123",
+            "email": "amit.shah@gmail.com",
+            "contact": "9191919191",
+            "userId": 1739101992345,
+            "isAdmin": false
+        },
+        {
+            "id": "5",
+            "username": "Sneha Verma",
+            "password": "Sneha@123",
+            "email": "sneha.verma@gmail.com",
+            "contact": "8787878787",
+            "userId": 1739102104567,
+            "isAdmin": true
+        },
+        {
+            "id": "6",
+            "username": "Vikas Yadav",
+            "password": "Vikas@123",
+            "email": "vikas.yadav@gmail.com",
+            "contact": "9898989898",
+            "userId": 1739102237890,
+            "isAdmin": false
+        },
+        {
+            "id": "7",
+            "username": "Pooja Sharma",
+            "password": "Pooja@123",
+            "email": "pooja.sharma@gmail.com",
+            "contact": "7676767676",
+            "userId": 1739102356789,
+            "isAdmin": true
+        },
+        {
+            "id": "8",
+            "username": "Rohan Mehta",
+            "password": "Rohan@123",
+            "email": "rohan.mehta@gmail.com",
+            "contact": "8080808080",
+            "userId": 1739102489012,
+            "isAdmin": false
+        },
+        {
+            "id": "9",
+            "username": "Neha Gupta",
+            "password": "Neha@123",
+            "email": "neha.gupta@gmail.com",
+            "contact": "7070707070",
+            "userId": 1739102591234,
+            "isAdmin": false
+        },
+        {
+            "id": "10",
+            "username": "Saurabh Kumar",
+            "password": "Saurabh@123",
+            "email": "saurabh.kumar@gmail.com",
+            "contact": "8989898989",
+            "userId": 1739102714567,
+            "isAdmin": true
+        }
+    ]
+}
