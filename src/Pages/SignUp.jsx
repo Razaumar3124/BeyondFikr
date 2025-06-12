@@ -1,7 +1,7 @@
 import { Typography, Box, TextField, Button, Checkbox, FormControlLabel, useTheme } from '@mui/material'
 import React, { useEffect, useRef } from 'react'
 import logo1 from "../assets/logo/logo5.png"
-import signupimg from "../assets/login_signup_imgs/signupimg1.png"
+import signupimg from "../assets/login_signup_imgs/bgimg2.jpg"
 import { Link } from 'react-router';
 import gsap from 'gsap';
 import VisibilityInputField from '../Utils/VisibilityInputField';
@@ -87,18 +87,22 @@ const SignUp = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            overflow: "hidden"
+            bgcolor: "rgb(106,184,204)",
+            backgroundImage: {lg: `url(${signupimg})`},
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "100% 100%",
+            backgroundPosition: "center",
         }}>
             <Box sx={{
                 width: { lg: "50%" },
                 height: "100%"
             }}>
-                <Box
+                {/* <Box
                 component="img"
                 src={signupimg}
                 alt='Login Img'
                 sx={{display: {xs: "none",lg: "block"},width: {lg: "99%"},height: {lg: "99%"},borderRadius: "10px"}}
-                />
+                /> */}
             </Box>
             <Box sx={{
                 width: { xs: "100%", lg: "50%" },
@@ -109,7 +113,7 @@ const SignUp = () => {
                 height: "100%"
             }}>
                 <Box ref={formRef} component="form" sx={{
-                    border: "1px solid rgb(48,107,115)",
+                    border: "1px solid rgb(106,184,204)",
                     width: { xs: "90%", sm: "70%", md: "50%", lg: "70%" },
                     borderRadius: "10px",
                     display: "flex",
@@ -118,7 +122,7 @@ const SignUp = () => {
                     alignItems: "center",
                     padding: { xs: "30px 10px", sm: "15px", md: "20px", lg: "20px" },
                     willChange: "transform, opacity",
-                    backgroundColor: "rgba(48,107,115,0.1)",
+                    backgroundColor: "rgb(255,255,255)",
                     backdropFilter: "blur(100px)", // This adds blur behind the box, including border
                     WebkitBackdropFilter: "blur(100px)",
                 }}>

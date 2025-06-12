@@ -1,7 +1,7 @@
 import { Typography, Box, TextField, Button, Checkbox, FormControlLabel, useTheme } from '@mui/material'
 import React, { useEffect, useRef, useState } from 'react'
 import logo1 from "../assets/logo/logo5.png"
-import loginimg from "../assets/login_signup_imgs/loginimg1.jpg"
+import loginimg from "../assets/login_signup_imgs/bgimg1.jpg"
 import { Link, useNavigate } from 'react-router'; // Fixed import
 import gsap from 'gsap';
 import VisibilityInputField from '../Utils/VisibilityInputField';
@@ -162,7 +162,12 @@ const Login = () => {
       width: "100%",
       display: "flex",
       justifyContent: "center",
-      alignItems: "center"
+      alignItems: "center",
+      bgcolor: "rgb(106,184,204)",
+      backgroundImage: {lg: `url(${loginimg})`},
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "100% 100%",
+      backgroundPosition: "center",
     }}>
       <Box sx={{
         width: { xs: "100%", lg: "50%" },
@@ -172,7 +177,7 @@ const Login = () => {
         alignItems: "center",
       }}>
         <Box ref={formRef} component="form" onSubmit={handleLogin} sx={{
-            border: "1px solid rgb(48,107,115)",
+            border: "1px solid rgb(106,184,204)",
             width: { xs: "90%", sm: "70%", md: "50%", lg: "70%" },
             borderRadius: "10px",
             display: "flex",
@@ -181,7 +186,7 @@ const Login = () => {
             alignItems: "center",
             padding: { xs: "30px 10px", sm: "15px", md: "20px", lg: "20px" },
             willChange: "transform, opacity",
-            backgroundColor: "rgba(48,107,115,0.1)",
+            backgroundColor: "rgb(255,255,255)",
             backdropFilter: "blur(100px)",
             WebkitBackdropFilter: "blur(100px)",
         }}>
@@ -306,12 +311,12 @@ const Login = () => {
         justifyContent: "center",
         alignItems: "center"
       }}>
-        <Box
+        {/* <Box
           component="img"
           src={loginimg}
           alt='Login Img'
           sx={{display: {xs: "none",lg: "block"},width: {lg: "99%"},height: {lg: "99%"},borderRadius: "10px"}}
-        />
+        /> */}
       </Box>
     </Box>
   )
