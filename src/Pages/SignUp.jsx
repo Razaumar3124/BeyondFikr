@@ -1,6 +1,6 @@
 import { Typography, Box, TextField, Button, Checkbox, FormControlLabel, useTheme } from '@mui/material'
 import React, { useEffect, useRef } from 'react'
-import logo1 from "../assets/logo/logo5.png"
+import logo1 from "../assets/logo/logo.png"
 import signupimg from "../assets/login_signup_imgs/bgimg2.jpg"
 import { Link } from 'react-router';
 import gsap from 'gsap';
@@ -87,7 +87,7 @@ const SignUp = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            bgcolor: "rgb(106,184,204)",
+            bgcolor: `${theme.palette.custom.theme2}`,
             backgroundImage: {lg: `url(${signupimg})`},
             backgroundRepeat: "no-repeat",
             backgroundSize: "100% 100%",
@@ -149,7 +149,7 @@ const SignUp = () => {
                             required
                             InputProps={{
                                 sx: {
-                                    color: "white",
+                                    color: `${theme.palette.custom.theme1}`,
                                     '& input::placeholder': {
                                         color: `${theme.palette.custom.theme1}`,
                                         opacity: 1,

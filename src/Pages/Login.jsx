@@ -1,6 +1,6 @@
 import { Typography, Box, TextField, Button, Checkbox, FormControlLabel, useTheme } from '@mui/material'
 import React, { useEffect, useRef, useState } from 'react'
-import logo1 from "../assets/logo/logo5.png"
+import logo1 from "../assets/logo/logo.png"
 import loginimg from "../assets/login_signup_imgs/bgimg1.jpg"
 import { Link, useNavigate } from 'react-router'; // Fixed import
 import gsap from 'gsap';
@@ -163,7 +163,7 @@ const Login = () => {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      bgcolor: "rgb(106,184,204)",
+      bgcolor: `${theme.palette.custom.theme2}`,
       backgroundImage: {lg: `url(${loginimg})`},
       backgroundRepeat: "no-repeat",
       backgroundSize: "100% 100%",
