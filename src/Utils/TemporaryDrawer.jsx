@@ -1,28 +1,99 @@
-import { Box, Button, Drawer } from '@mui/material';
-import React, { useState } from 'react'
+import { Box, Button, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography, useTheme } from '@mui/material'
+import React from 'react'
+import logo from "../assets/logo/logo.png"
+import { NavLink } from 'react-router-dom';
+import Loglogic from './loglogic';
 
-const TemporaryDrawer = () => {
+const TemporaryDrawer = ({open, toggleDrawer}) => {
 
-    const [open, setOpen] = useState(false);
+  const theme = useTheme();
 
-    const toggleDrawer = (newOpen)=>{
-        setOpen(newOpen);
-    }
+  const HSAC = [
+    {
+        navName: "Home",
+        navigateTo: "/",
+    },
+    {
+        navName: "Services",
+        navigateTo: "/services",
+    },
+    {
+        navName: "About Us",
+        navigateTo: "/aboutus",
+    },
+    {
+        navName: "Contact",
+        navigateTo: "/contact",
+    },
+  ]
 
-    const DrawerList = (
-        <Box sx={{width: "250px", border: "1px solid red"}} role="presentation" onClick={toggleDrawer(false)}>
-
-        </Box>
-    )
+  const DrawerList = (
+    <Box sx={{width: 300, height: "100%", padding: "8px 0",display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center"}} role="presentation" onClick={()=>toggleDrawer(false)}>
+        <List sx={{display: "flex",flexDirection: "column", alignItems: "center"}}>
+            <Box
+                component="img"
+                src={logo}
+                sx={{width: "140px",marginTop: "10px"}}
+            Box />
+            <Typography 
+                variant='h5'
+                sx={{marginTop: "10px",fontFamily: `${theme.palette.custom.fontfamily}`,fontWeight: "bold"}}
+            >
+                BeyondFikr
+            </Typography>
+            <Typography 
+            variant='body1'
+            sx={{fontFamily: `${theme.palette.custom.fontfamily}`,fontWeight: 'bold'}}
+            >
+                Where Mental Peace Matters
+            </Typography>
+            <List sx={{marginTop: "20px",display: "flex",flexDirection: "column",alignItems: "center",gap: "20px"}}>
+            {HSAC.map((val, i) => (
+                <Typography 
+                    variant='body1'
+                    sx={{fontfamily: `${theme.palette.custom.fontfamily}`,fontWeight: "bold",fontSize: "20px"}}
+                >
+                    <NavLink 
+                    to={val.navigateTo} 
+                    style={({isActive})=>({
+                        padding: "8px",
+                        textDecorationLine: "none",
+                        color: "black",
+                        borderRadius: "20px 0",
+                        borderTop: isActive && "3px solid red",
+                        borderRight: isActive && "3px solid black",
+                        borderBottom: isActive && "3px solid black",
+                        borderLeft: isActive && "3px solid red",
+                    })}
+                    end
+                    >
+                        {val.navName}
+                    </NavLink>
+                </Typography>
+            ))}
+            </List>
+        </List>
+        <List sx={{display: "flex",flexDirection: "column",alignItems: "center",gap: "15px"}}>
+            <Typography 
+                variant='body1'
+                sx={{fontfamily: `${theme.palette.custom.fontfamily}`,fontWeight: "bold",fontSize: "20px"}}
+            >
+                <Loglogic />
+            </Typography>
+            <Typography 
+                variant='body1'
+                sx={{fontfamily: `${theme.palette.custom.fontfamily}`,fontWeight: "bold",fontSize: "20px"}}
+            >
+                Log Out
+            </Typography>
+        </List>
+    </Box>
+  );
 
   return (
-    <>
-        <Button onClick={toggleDrawer(true)}>Open drawer</Button>
-        <Drawer open={open} onClose={toggleDrawer(false)}>
-            {DrawerList}
-        </Drawer>
-        
-    </>
+    <Drawer open={open} onClose={()=>toggleDrawer(false)}>
+        {DrawerList}
+    </Drawer>
   )
 }
 

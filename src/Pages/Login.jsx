@@ -2,7 +2,7 @@ import { Typography, Box, TextField, Button, Checkbox, FormControlLabel, useThem
 import React, { useEffect, useRef, useState } from 'react'
 import logo1 from "../assets/logo/logo.png"
 import loginimg from "../assets/login_signup_imgs/bgimg1.jpg"
-import { Link, useNavigate } from 'react-router'; // Fixed import
+import { Link, useNavigate } from 'react-router-dom'; // Fixed import
 import gsap from 'gsap';
 import VisibilityInputField from '../Utils/VisibilityInputField';
 import useStore from '../Store/Store';

@@ -1,9 +1,35 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter } from "react-router-dom";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
-import Navbar from "../Components/Navbar/Navbar";
+import HomePage from "../Pages/HomePage";
+import HeroPage from "../Pages/HeroPage";
+import AboutusPage from "../Pages/AboutusPage";
+import ContactPage from "../Pages/ContactPage";
+import ServicesPage from "../Pages/ServicesPage";
 
 let routes = createBrowserRouter([
+    {
+        path: "/",
+        element: <HeroPage />,
+        children: [
+            {
+                path: "/",
+                element: <HomePage />
+            },
+            {
+                path: "services",
+                element: <ServicesPage />
+            },
+            {
+                path: "aboutus",
+                element: <AboutusPage />
+            },
+            {
+                path: "contact",
+                element: <ContactPage />
+            },
+        ]
+    },
     {
         path: "/login",
         element: <Login />
@@ -11,10 +37,6 @@ let routes = createBrowserRouter([
     {
         path: "/signup",
         element: <SignUp />
-    },
-    {
-        path: "/nav",
-        element: <Navbar />
     }
 ])
 

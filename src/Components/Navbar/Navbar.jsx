@@ -1,11 +1,12 @@
 import { Box, Button, IconButton, useTheme } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import logo from "../../assets/logo/logo.png"
 import { HiMenuAlt2 } from "react-icons/hi";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import MenuIcon from '@mui/icons-material/Menu';
 import TemporaryDrawer from '../../Utils/TemporaryDrawer'
 import { NavLink } from 'react-router';
+import Loglogic from '../../Utils/loglogic';
 
 const Navbar = () => {
 
@@ -13,26 +14,32 @@ const Navbar = () => {
 
   let navData = [
     {
-      path: "/home",
+      path: "/",
       navName: "Home"
     },
     {
-      path: "",
+      path: "/services",
       navName: "Services"
     },
     {
-      path: "",
+      path: "/aboutus",
       navName: "About Us"
     },
     {
-      path: "/about",
+      path: "/contact",
       navName: "Contact"
     },
   ]
 
+  const [open, setOpen] = useState(false);
+
+  const toggleDrawer = (newOpen)=>{
+    setOpen(newOpen);
+  }
+
   return (
       <Box 
-        sx={{padding: "10px 15px",display: "flex",justifyContent: "space-between",alignItems: "center"}}
+        sx={{bgcolor: "white",padding: "10px 15px",display: "flex",justifyContent: "space-between",alignItems: "center"}}
       >
         <Box
           sx={{display: "flex",gap: {lg: "4%"},alignItems: "center"}}
@@ -43,15 +50,34 @@ const Navbar = () => {
             alt="logo not found"
             sx={{width: {xs: "30%",lg: "10%"}}}
           />
-          <IconButton sx={{display: {lg: "none"}}} size="large">
+          <IconButton onClick={()=>toggleDrawer(true)} sx={{display: {lg: "none"}}} size="large">
             <HiMenuAlt2 style={{fontSize: "1.2em",color: "black"}}/>
           </IconButton>
+          <TemporaryDrawer open={open} toggleDrawer={toggleDrawer} />
           <Box
-            sx={{height: {lg: "60%"}, fontSize: "1.7em",display: {xs: "none",lg: "flex"}, gap: "50px"}}
+            sx={{height: {lg: "60%"}, fontSize: "1.7em",display: {xs: "none",lg: "flex"}, gap: "20px"}}
           >
             {navData.map((val,i)=>{
               return(
-                <NavLink style={{wordSpacing: "-8px",fontFamily: "monospace" , fontWeight: "bold  ",color: `black`,textDecorationLine: "none"}}>{val.navName}</NavLink>
+                <NavLink 
+                to={val.path} 
+                style={({isActive})=>({
+                  wordSpacing: "-8px",
+                  fontFamily: `${theme.palette.custom.fontfamily}`,
+                  fontWeight: "bold",
+                  padding: "0px 10px",
+                  color: `black`,
+                  textDecorationLine: "none",
+                  borderRadius: "20px 0",
+                  borderTop: isActive && "3px solid red",
+                  borderRight: isActive && "3px solid black",
+                  borderBottom: isActive && "3px solid black",
+                  borderLeft: isActive && "3px solid red",
+                })}
+                end
+                >
+                  {val.navName}
+                </NavLink>
               )
             })}
           </Box>
@@ -61,14 +87,9 @@ const Navbar = () => {
           sx={{display: {md: "flex"},gap: "30px"}}
         >
           <Box
-            sx={{display: {xs: "none",md: "flex"}, alignItems: "center", fontSize: "1.7em",fontFamily: "monospace",fontWeight: "bold", wordSpacing: "-9px",cursor: "pointer"}}
+            sx={{display: {xs: "none",md: "flex"}, alignItems: "center", fontSize: "1.7em",fontFamily: `${theme.palette.custom.fontfamily}`,fontWeight: "bold", wordSpacing: "-9px",cursor: "pointer"}}
           >
-            <NavLink 
-              to='/login'
-              style={{textDecorationLine: "none",color: "black"}}
-            >
-              Log / SignIn
-            </NavLink>
+            <Loglogic />
           </Box>
           <Button
             variant='contained'
@@ -79,7 +100,6 @@ const Navbar = () => {
 
 
         </Box>
-
       </Box>
   )
 }
