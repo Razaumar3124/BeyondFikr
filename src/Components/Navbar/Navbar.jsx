@@ -60,6 +60,7 @@ const Navbar = () => {
             {navData.map((val,i)=>{
               return(
                 <NavLink 
+                key={i}
                 to={val.path} 
                 style={({isActive})=>({
                   wordSpacing: "-8px",

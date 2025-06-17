@@ -28,7 +28,7 @@ const TemporaryDrawer = ({open, toggleDrawer}) => {
   ]
 
   const DrawerList = (
-    <Box sx={{width: 300, height: "100%", padding: "8px 0",display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center"}} role="presentation" onClick={()=>toggleDrawer(false)}>
+    <Box sx={{width: 300, height: "100%", bgcolor: "rgb(232, 232, 232)", padding: "8px 0",display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center"}} role="presentation" onClick={()=>toggleDrawer(false)}>
         <List sx={{display: "flex",flexDirection: "column", alignItems: "center"}}>
             <Box
                 component="img"
