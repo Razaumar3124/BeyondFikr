@@ -6,7 +6,7 @@ import Footer from '../Components/Footer/Footer'
 
 const HeroPage = () => {
   return (
-    <Box sx={{height: '100vh',bgcolor: "rgb(232, 232, 232)",padding: {xs: "10px 0 0 0",md: "5px 0 0 0"}}}>
+    <Box sx={{bgcolor: "rgb(232, 232, 232)",padding: {xs: "10px 0px 10px 0px",md: "5px 0px 5px 0px"}}}>
         <Navbar />
         <Outlet />
         <Footer />  
