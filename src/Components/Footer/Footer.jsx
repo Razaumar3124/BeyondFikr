@@ -57,7 +57,7 @@ const Footer = () => {
   return (
     <Box sx={{bgcolor: "white"}}>
       <Box
-      sx={{padding: {xs: "20px",md: "40px"},display: "flex",flexWrap: "wrap",justifyContent: {xs: "center",md: "left"},gap: "40px"}}
+      sx={{padding: {xs: "20px",md: "40px"},display: "flex",flexWrap: "wrap",justifyContent: {xs: "center",md: "space-evenly"},gap: {xs: "30px",md: "150px"}}}
       >
         <Box
         sx={{display: "flex",flexDirection: "column",alignItems:"center", minWidth: "300px",border: ""}}
@@ -69,7 +69,7 @@ const Footer = () => {
           />
           <Typography
           variant="h5"
-          sx={{marginTop: "20px",fontFamily: `${theme.palette.custom.fontfamily}`,fontWeight: "bold"}}
+          sx={{marginTop: "20px",fontSize: "30px" ,fontFamily: `${theme.palette.custom.fontfamily}`,fontWeight: "bold"}}
           >
             Talk. Heal. Grow.
           </Typography>
@@ -85,7 +85,7 @@ const Footer = () => {
         >
           <Typography
           variant='h5'
-          sx={{fontFamily: `${theme.palette.custom.fontfamily}`, fontWeight: "bold",fontSize: "1.7em"}}
+          sx={{fontFamily: `${theme.palette.custom.fontfamily}`,fontWeight: "bold" ,fontSize: "30px"}}
           >
             Explore
           </Typography>
@@ -118,7 +118,7 @@ const Footer = () => {
         >
           <Typography
           variant='h5'
-          sx={{fontFamily: `${theme.palette.custom.fontfamily}`, fontWeight: "bold",fontSize: "1.7em"}}
+          sx={{fontFamily: `${theme.palette.custom.fontfamily}`, fontWeight: "bold",fontSize: "30px"}}
           >
             Follow Us
           </Typography>
@@ -139,26 +139,12 @@ const Footer = () => {
           </Box>
         </Box>
       </Box>
-      <Box sx={{display: 'flex',justifyContent: {xs: "center",md: "space-between"},alignItems: "end", position: "relative"}}>
+      <Box sx={{display: 'flex',justifyContent: "center",alignItems: "center"}}>
         <Typography
         variant='subtitle2'
-        sx={{position: "relative",left: {sm: "50px"}}}
         >
           © 2025 BeyondFikr. All rights reserved.
         </Typography>
-        <Box 
-        component="img"
-        src={logo2}
-        sx={{
-          display: {xs: "none",md: "flex"},
-          height: "150px",
-          width: "600px",
-          position: "absolute",
-          bottom: 0,
-          right: 0,
-          zIndex: 1
-        }}
-        />
       </Box>
     </Box>
   )
