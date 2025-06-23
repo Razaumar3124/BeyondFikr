@@ -64,7 +64,7 @@ const Navbar = () => {
                 to={val.path} 
                 style={({isActive})=>({
                   wordSpacing: "-8px",
-                  fontFamily: `${theme.palette.custom.fontfamily}`,
+                  fontFamily: theme.palette.custom.fontfamily,
                   fontWeight: "bold",
                   padding: "0px 10px",
                   color: `black`,
