@@ -55,7 +55,7 @@ const Footer = () => {
   ]
 
   return (
-    <Box sx={{bgcolor: "white"}}>
+    <Box sx={{bgcolor: "white",marginTop: {xs: "30px",md: "0px"}}}>
       <Box
       sx={{padding: {xs: "20px",md: "40px"},display: "flex",flexWrap: "wrap",justifyContent: {xs: "center",md: "space-evenly"},gap: {xs: "30px",md: "150px"}}}
       >

@@ -39,7 +39,7 @@ const Navbar = () => {
 
   return (
       <Box 
-        sx={{bgcolor: "white",padding: "10px 15px",display: "flex",justifyContent: "space-between",alignItems: "center"}}
+        sx={{bgcolor: "white",padding: "10px 15px",position: "sticky",top: "0px",zIndex: "3",display: "flex",justifyContent: "space-between",alignItems: "center"}}
       >
         <Box
           sx={{display: "flex",gap: {lg: "4%"},alignItems: "center"}}

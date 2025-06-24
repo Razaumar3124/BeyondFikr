@@ -4,6 +4,7 @@ import { RouterProvider } from 'react-router/dom'
 import routes from './Routes/Routes'
 import theme from './Theme/Theme'
 import { ToastContainer } from 'react-toastify'
+import ScrollToTop from './Utils/ScrollToTop'
 
 const App = () => {
   return (
