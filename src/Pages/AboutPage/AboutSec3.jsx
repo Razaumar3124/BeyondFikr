@@ -11,6 +11,7 @@ const AboutSec3 = () => {
     <Box sx={{
       display: "flex",
       flexWrap: "wrap-reverse",
+      marginTop: "50px"
     }}>
         <Box
         sx={{width: {xs: "100%",md: "50%"},display: "flex",justifyContent: "center",alignItems: "center"}}
