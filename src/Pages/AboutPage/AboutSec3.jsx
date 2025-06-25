@@ -1,11 +1,57 @@
 import { Box, Button, Typography, useTheme } from '@mui/material'
 import trainingImg from "../../assets/servicesImgs/trainingImg.jpg"
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const AboutSec3 = () => {
 
-    const theme = useTheme();
+  const theme = useTheme();
+
+  const AnimateRef = useRef(null);
+  const ParaRef = useRef(null);
+
+  useEffect(()=>{
+    const tl = AnimateRef.current;
+    const el = ParaRef.current;
+
+    gsap.fromTo(
+      el,
+      { opacity: 0, x: -100 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+          toggleActions: "play none none none"
+        }
+      }
+    )
+
+    gsap.fromTo(
+      tl,
+      { opacity: 0, x: 40, y: 40 },
+      {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: tl,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        }
+      }
+    )
+
+  },[])
 
   return (
     <Box sx={{
@@ -17,6 +63,7 @@ const AboutSec3 = () => {
         sx={{width: {xs: "100%",md: "50%"},display: "flex",justifyContent: "center",alignItems: "center"}}
         >
             <Box 
+            ref={ParaRef}
             sx={{width: "80%",display: "flex",flexDirection: "column",gap: "20px"}}
             >
                 <Typography
@@ -62,6 +109,7 @@ const AboutSec3 = () => {
             <Box
               component="img"
               src={trainingImg}
+              ref={AnimateRef}
               sx={{
                 position: "absolute",
                 bottom: "40px",

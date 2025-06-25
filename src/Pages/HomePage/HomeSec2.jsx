@@ -1,6 +1,10 @@
 import { Box, Typography, useTheme } from '@mui/material'
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const HomeSec2 = () => {
 
@@ -25,6 +29,30 @@ const HomeSec2 = () => {
         },
     ]
 
+    const AnimateRef = useRef([]);
+
+    useEffect(()=>{
+        AnimateRef.current.forEach((el,i)=>{
+            if (!el) return;
+
+            gsap.fromTo(
+                el,
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    delay: i * 0.1,
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 90%",
+                        toggleActions: "play none none none"
+                    }
+                }
+            )
+        })    
+    },[])
+
   return (
     <Box
     sx={{padding: "30px 0",display: "flex",flexDirection: "column",alignItems: "center"}}
@@ -41,6 +69,8 @@ const HomeSec2 = () => {
             {benefitList.map((val,i)=>{
                 return(
                     <Box
+                    key={i}
+                    ref={el => (AnimateRef.current[i] = el)}
                     sx={{border: "2px solid",padding: "20px",width: "280px",minWidth: "250px",borderRadius: "20px"}}
                     >
                         <StarRoundedIcon sx={{color: "goldenrod",fontSize: "70px"}} />

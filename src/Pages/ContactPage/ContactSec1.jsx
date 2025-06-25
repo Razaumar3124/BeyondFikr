@@ -2,6 +2,7 @@ import { Box, Button, TextField, Typography, useTheme } from '@mui/material'
 import CallIcon from '@mui/icons-material/Call';
 import MailIcon from '@mui/icons-material/Mail';
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 
 const ContactSec1 = () => {
 
@@ -9,12 +10,14 @@ const ContactSec1 = () => {
 
     const contactList = [
         {
+            path: "tel:+919767067285",
             icon: <CallIcon />,
-            msg: "+91 0987654321"
+            msg: "+91 9767067285"
         },
         {
+            path: "mailto:info@beyondfikr.com",
             icon: <MailIcon />,
-            msg: "beyond@beyondfikr.com"
+            msg: "info@beyondfikr.com"
         },
     ]
 
@@ -35,15 +38,20 @@ const ContactSec1 = () => {
             variant='body1'
             sx={{display: "flex",justifyContent: "center",alignItems: "center",textAlign: "center"}}
             >
-                If you have any questions or need assistance, don’t hesitate to reach out. Were here to help!
+                If you have any questions or need assistance, don’t hesitate to reach out. Were here to help 24x7!
             </Typography>
             {contactList.map((val,i)=>(
-                <Typography
-                variant='body1'
-                sx={{display: "flex",alignItems: "center",gap: "10px"}}
-                >
-                    {val.icon} {val.msg}
-                </Typography>
+               <NavLink
+               to={val.path}
+               style={{textDecorationLine: "none", color: "black"}}
+               >
+                    <Typography
+                    variant='body1'
+                    sx={{display: "flex",alignItems: "center",gap: "10px"}}
+                    >
+                        {val.icon} {val.msg}
+                    </Typography>
+               </NavLink>
             ))}
         </Box>
         <Box 

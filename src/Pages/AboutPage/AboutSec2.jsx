@@ -2,8 +2,12 @@ import { Box, Button, Card, CardContent, IconButton, Typography, useTheme } from
 import trainingImg from "../../assets/servicesImgs/trainingImg.jpg"
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const AboutSec2 = () => {
 
@@ -30,6 +34,32 @@ const AboutSec2 = () => {
       },
     ]
 
+    const AnimateRef = useRef([]);
+    
+    useEffect(()=>{
+      
+
+      AnimateRef.current.forEach((el,i)=>{
+        if (!el) return;
+
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 100 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            delay: i * 0.1,
+            scrollTrigger: {
+              trigger: el,
+              start: "top 90%",
+              toggleActions: "play none none none"
+            }
+          }
+        )
+      })
+    },[])
+
   return (
     <Box
     sx={{marginTop: "30px"}}
@@ -46,6 +76,7 @@ const AboutSec2 = () => {
             {teamList.map((val,i)=>(
               <Card
               key={i}
+              ref={el => (AnimateRef.current[i] = el)}
               sx={{ maxWidth: 365 }}
               >
                 <Box

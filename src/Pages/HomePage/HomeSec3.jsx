@@ -1,11 +1,55 @@
 import { Box, Button, Typography, useTheme } from '@mui/material'
 import servicesImg from "../../assets/HomePageImgs/servicesImg.jpg"
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const HomeSec3 = () => {
 
     const theme = useTheme();
+
+    const ParaRef = useRef(null);
+    const ImgRef = useRef(null);
+
+    useEffect(()=>{
+        const el = ParaRef.current;
+        const tl = ImgRef.current;
+
+        gsap.fromTo(
+            el,
+            { opacity: 0, x: -70 },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 90%",
+                    toggleActions: "play none none none"
+                }
+            }
+        )
+
+        gsap.fromTo(
+            tl,
+            { opacity: 0, x: 70 },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 1.5,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: tl,
+                    start: "top 90%",
+                    toggleActions: "play none none none"
+                }
+            }
+        )
+    },[])
 
   return (
     <Box>
@@ -19,6 +63,7 @@ const HomeSec3 = () => {
         sx={{display: "flex",flexWrap: "wrap-reverse",justifyContent: "center"}}
         >
             <Box
+            ref={ParaRef}
             sx={{width: {xs: "80%",md: "50%"},padding: {xs: "30px 0px",md: "50px 100px"},display: "flex",flexDirection: "column",justifyContent: "center",gap: "20px"}}
             >
                 <Typography
@@ -48,6 +93,7 @@ const HomeSec3 = () => {
             sx={{width: {xs: "100%",md: "50%"},display: "flex",justifyContent: "center",alignItems: "center"}}
             >
                 <Box 
+                ref={ImgRef}
                 component="img"
                 src={servicesImg}
                 sx={{width: "80%",height: {xs: "300px",md: "80%",lg: "auto"},borderRadius: "20px"}}

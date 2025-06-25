@@ -4,8 +4,10 @@ import coupleImg from "../assets/servicesImgs/coupleImg.jpg"
 import individualImg from "../assets/servicesImgs/individualImg.jpg"
 import trainingImg from "../assets/servicesImgs/trainingImg.jpg"
 import workshopImg from "../assets/servicesImgs/workshopImg.jpg"
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 
 const ServicesPage = () => {
 
@@ -39,6 +41,32 @@ const ServicesPage = () => {
     },
   ]
 
+  gsap.registerPlugin(ScrollTrigger);
+
+  const boxRef = useRef([]);
+
+  useEffect(() => {
+    boxRef.current.forEach((el, i) => {
+      if (!el) return;
+
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: 100 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: i * 0.1, // optional: stagger animation slightly
+          scrollTrigger: {
+            trigger: el,
+            start: "top 90%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    });
+  }, []);
+
   return (
     <Box
     sx={{padding: {xs: "30px 0px",sm: "30px 60px"},display: "flex",flexWrap: "wrap",justifyContent: {xs: "center"},gap: {xs: "40px",md: "50px"}}}
@@ -46,6 +74,7 @@ const ServicesPage = () => {
       {servicesList.map((val,i)=>(
         <Box
         key={i}
+        ref={el => (boxRef.current[i] = el)}
         sx={{bgcolor: "whitesmoke",width: {xs: "90%",md: "370px",xl: "410px"},padding: "20px",display: "flex",flexDirection: "column",gap: "15px",borderRadius: "10px"}}>
           <Box 
           component="img"

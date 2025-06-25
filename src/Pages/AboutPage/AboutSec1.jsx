@@ -1,8 +1,55 @@
 import { Box, Typography } from '@mui/material'
 import trainingImg from "../../assets/servicesImgs/trainingImg.jpg"
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
+
+gsap.registerPlugin(ScrollTrigger);
 
 const AboutSec1 = () => {
+  
+  const AnimateRef = useRef(null);
+  const ParaRef = useRef(null);
+
+  useEffect(()=>{
+    const tl = ParaRef.current;
+    const el = AnimateRef.current;
+
+    gsap.fromTo(
+      tl,
+      { opacity: 0, x: 100 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: tl,
+          start: "top 90%",
+          toggleActions: "play none none none"
+        }
+      }
+    )
+
+    gsap.fromTo(
+      el,
+      { opacity: 0, x: -40,y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        x: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        }
+      }
+    )
+  },[]);
+
   return (
     <Box sx={{
       display: "flex",
@@ -29,6 +76,7 @@ const AboutSec1 = () => {
             <Box
               component="img"
               src={trainingImg}
+              ref={AnimateRef}
               sx={{
                 position: "absolute",
                 bottom: "40px",
@@ -46,6 +94,7 @@ const AboutSec1 = () => {
         sx={{width: {xs: "100%",md: "50%"},display: "flex",justifyContent: "center",alignItems: "center"}}
         >
           <Box
+          ref={ParaRef}
           sx={{width: "80%"}}
           >
             <Typography>

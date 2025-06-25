@@ -1,7 +1,11 @@
 import { Accordion, AccordionDetails, AccordionSummary, Box, Typography, useTheme } from '@mui/material'
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward"
 import confusedMan from "../../assets/HomePageImgs/confusedMan.png"
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
+
+gsap.registerPlugin(ScrollTrigger);
 
 const HomeSec5 = () => {
 
@@ -29,6 +33,49 @@ const HomeSec5 = () => {
             answer: "We provide a blend of online materials, including videos, articles, and interactive sessions to cater to different learning styles and ensure a comprehensive understanding."
         },
     ]
+
+    const ImgRef = useRef(null);
+    const AccordionRef = useRef([]);
+
+    useEffect(()=>{
+        const el = ImgRef.current;
+
+        gsap.fromTo(
+            el,
+            { opacity: 0, x: -70 },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 90%",
+                    toggleActions: "play none none none"
+                }
+            }
+        )
+
+        AccordionRef.current.forEach((tl,i)=>{
+            if (!tl) return;
+
+            gsap.fromTo(
+                tl,
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    delay: i * 0.1,
+                    scrollTrigger: {
+                        trigger: tl,
+                        start: "top 90%",
+                        toggleActions: "play none none none"
+                    }
+                }
+            )
+        })
+    },[])
 
   return (
     <Box
@@ -59,6 +106,7 @@ const HomeSec5 = () => {
                 <Box 
                 component='img'
                 src={confusedMan}
+                ref={ImgRef}
                 sx={{width: {xs: "350px",md: "80%"},height: {xs: "350px",md: "80%"}}}
                 />
             </Box>
@@ -68,6 +116,7 @@ const HomeSec5 = () => {
                 {QuestionList.map((val,i)=>(
                     <Accordion 
                     key={i}
+                    ref={tl => (AccordionRef.current[i] = tl)}
                     sx={{
                         color: "blue", 
                         padding: "7px 0", 
