@@ -5,85 +5,104 @@ import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useForm, Controller } from 'react-hook-form';
 
 const ContactSec1 = () => {
     const theme = useTheme();
-    const formData = useRef();
+    const formRef = useRef();
+
+    const {
+        control,
+        handleSubmit,
+        reset,
+        setValue,
+    } = useForm({
+        defaultValues: {
+            full_name: '',
+            age: '',
+            phone_no: '',
+            email: '',
+            msg: '',
+            message: '', // Include default value for hidden field
+        },
+    });
 
     const contactList = [
         {
-            path: "tel:+919767067285",
+            path: 'tel:+919767067285',
             icon: <CallIcon />,
-            msg: "+91 9767067285"
+            msg: '+91 9767067285',
         },
         {
-            path: "mailto:info@beyondfikr.com",
+            path: 'mailto:info@beyondfikr.com',
             icon: <MailIcon />,
-            msg: "info@beyondfikr.com"
+            msg: 'info@beyondfikr.com',
         },
     ];
 
-    const sendEmail = (e) => {
-        e.preventDefault();
-
-        const full_name = formData.current.full_name.value;
-        const age = formData.current.age.value;
-        const phone_no = formData.current.phone_no.value;
-        const email = formData.current.email.value;
-        const msg = formData.current.msg.value;
+    const onSubmit = async (data) => {
         const time_date = new Date().toLocaleString();
-
         const finalMessage = `
-            Name: ${full_name}
-            Age: ${age}
-            Phone: ${phone_no}
-            Email: ${email}
-            Date/Time: ${time_date}
+Name: ${data.full_name}
+Age: ${data.age}
+Phone: ${data.phone_no}
+Email: ${data.email}
+Date/Time: ${time_date}
 
-            Message:
-            ${msg}
+Message:
+${data.msg}
         `;
 
-        formData.current.message.value = finalMessage;
+        // Update hidden message field
+        setValue('message', finalMessage);
 
-        emailjs.sendForm(
-            "service_mrend73",
-            "template_fybydry",
-            formData.current,
-            "-5QdY6eATwnYzbVf5"
-        ).then(
-            () => {
-                toast.success("Message Sent Successfully!", {
-                    position: "top-center"
-                });
-            },
-            (error) => {
-                toast.error("Failed to send message, please try again.", {
-                    position: "top-center"
-                });
-            }
-        );
+        try {
+            await emailjs.sendForm(
+                'service_mrend73',
+                'template_fybydry',
+                formRef.current,
+                '-5QdY6eATwnYzbVf5'
+            );
+            toast.success('Message Sent Successfully!', {
+                position: 'top-center',
+                autoClose: 3000,
+            });
+            // Reset all fields to their default values
+            reset({
+                full_name: '',
+                age: '',
+                phone_no: '',
+                email: '',
+                msg: '',
+                message: '', // Explicitly reset hidden field
+            });
+        } catch (error) {
+            toast.error('Failed to send message, please try again.', {
+                position: 'top-center',
+                autoClose: 3000,
+            });
+        }
     };
 
     return (
-        <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
             <Box
                 sx={{
-                    width: { xs: "100%", md: "50%" },
-                    padding: "50px",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: { xs: "normal", md: "center" },
-                    gap: "20px"
+                    width: { xs: '100%', md: '50%' },
+                    padding: '50px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: { xs: 'normal', md: 'center' },
+                    gap: '20px',
                 }}
             >
                 <Typography
                     variant="h6"
                     sx={{
                         fontFamily: theme.palette.custom?.fontfamily,
-                        fontWeight: "bold",
-                        fontSize: "40px"
+                        fontWeight: 'bold',
+                        fontSize: '40px',
                     }}
                 >
                     Get In Touch
@@ -91,10 +110,10 @@ const ContactSec1 = () => {
                 <Typography
                     variant="body1"
                     sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        textAlign: "center"
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        textAlign: 'center',
                     }}
                 >
                     If you have any questions or need assistance, don’t hesitate to reach out. We're here to help 24x7!
@@ -103,78 +122,147 @@ const ContactSec1 = () => {
                     <NavLink
                         key={i}
                         to={val.path}
-                        style={{ textDecorationLine: "none", color: "black" }}
+                        style={{ textDecorationLine: 'none', color: 'black' }}
                     >
                         <Typography
                             variant="body1"
-                            sx={{ display: "flex", alignItems: "center", gap: "10px" }}
+                            sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}
                         >
                             {val.icon} {val.msg}
                         </Typography>
                     </NavLink>
                 ))}
             </Box>
+
             <Box
                 component="form"
-                ref={formData}
-                onSubmit={sendEmail}
+                ref={formRef}
+                onSubmit={handleSubmit(onSubmit)}
                 sx={{
-                    width: { xs: "100%", md: "50%" },
-                    padding: { xs: "30px", md: "50px" },
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "20px"
+                    width: { xs: '100%', md: '50%' },
+                    padding: { xs: '30px', md: '50px' },
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '20px',
                 }}
             >
-                <TextField
-                    variant="outlined"
-                    label="Full Name"
+                <Controller
                     name="full_name"
-                    required
-                    sx={{ width: { xs: "100%", md: "60%" } }}
+                    control={control}
+                    rules={{ required: 'Full Name is required' }}
+                    render={({ field, fieldState: { error } }) => (
+                        <TextField
+                            {...field}
+                            variant="outlined"
+                            label="Full Name"
+                            required
+                            error={!!error}
+                            helperText={error ? error.message : ''}
+                            sx={{ width: { xs: '100%', md: '60%' } }}
+                        />
+                    )}
                 />
 
-                <TextField
-                    variant="outlined"
-                    label="Age"
+                <Controller
                     name="age"
-                    required
-                    sx={{ width: { xs: "20%", md: "30%" } }}
+                    control={control}
+                    rules={{
+                        required: 'Age is required',
+                        max: {
+                            value: 100,
+                            message: 'Age cannot be more than 100',
+                        },
+                    }}
+                    render={({ field, fieldState: { error } }) => (
+                        <TextField
+                            {...field}
+                            variant="outlined"
+                            label="Age"
+                            type="number"
+                            required
+                            error={!!error}
+                            helperText={error ? error.message : ''}
+                            sx={{ width: { xs: '20%', md: '30%' } }}
+                        />
+                    )}
                 />
 
-                <TextField
-                    variant="outlined"
-                    label="Phone no."
+                <Controller
                     name="phone_no"
-                    required
-                    sx={{ width: { xs: "73.5%", sm: "76%", md: "30%" } }}
+                    control={control}
+                    rules={{
+                        required: 'Phone number is required',
+                        pattern: {
+                            value: /^[0-9]{10}$/,
+                            message: 'Phone number must be 10 digits',
+                        },
+                    }}
+                    render={({ field, fieldState: { error } }) => (
+                        <TextField
+                            {...field}
+                            variant="outlined"
+                            label="Phone no."
+                            required
+                            error={!!error}
+                            helperText={error ? error.message : ''}
+                            sx={{ width: { xs: '73.5%', sm: '76%', md: '30%' } }}
+                        />
+                    )}
                 />
 
-                <TextField
-                    variant="outlined"
-                    label="Email"
+                <Controller
                     name="email"
-                    required
-                    sx={{ width: { xs: "100%", md: "60%" } }}
+                    control={control}
+                    rules={{
+                        required: 'Email is required',
+                        pattern: {
+                            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                            message: 'Enter a valid email address',
+                        },
+                    }}
+                    render={({ field, fieldState: { error } }) => (
+                        <TextField
+                            {...field}
+                            variant="outlined"
+                            label="Email"
+                            required
+                            error={!!error}
+                            helperText={error ? error.message : ''}
+                            sx={{ width: { xs: '100%', md: '60%' } }}
+                        />
+                    )}
                 />
 
-                <TextField
-                    multiline
-                    rows={4}
-                    variant="outlined"
-                    label="Your Message"
+                <Controller
                     name="msg"
-                    required
-                    sx={{ width: { xs: "100%", md: "93%" } }}
+                    control={control}
+                    rules={{ required: 'Message is required' }}
+                    render={({ field }) => (
+                        <TextField
+                            {...field}
+                            multiline
+                            rows={4}
+                            variant="outlined"
+                            label="Your Message"
+                            required
+                            sx={{ width: { xs: '100%', md: '93%' } }}
+                        />
+                    )}
                 />
 
-                {/* Hidden final message textarea */}
-                <textarea name="message" style={{ display: "none" }} readOnly />
+                {/* Hidden message field managed by Controller */}
+                <Controller
+                    name="message"
+                    control={control}
+                    render={({ field }) => (
+                        <textarea {...field} style={{ display: 'none' }} readOnly />
+                    )}
+                />
 
                 <Button
                     variant="contained"
                     type="submit"
-                    sx={{ color: "white", bgcolor: "black" }}
+                    sx={{ color: 'white', bgcolor: 'black' }}
                 >
                     Send Message
                 </Button>
