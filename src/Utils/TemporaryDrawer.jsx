@@ -60,10 +60,10 @@ const TemporaryDrawer = ({open, toggleDrawer}) => {
                         textDecorationLine: "none",
                         color: "black",
                         borderRadius: "20px 0",
-                        borderTop: isActive && "3px solid red",
-                        borderRight: isActive && "3px solid black",
-                        borderBottom: isActive && "3px solid black",
-                        borderLeft: isActive && "3px solid red",
+                        borderTop: isActive && "3px solid rgb(95,170,160)",
+                        borderRight: isActive && "3px solid rgb(46,108,111)",
+                        borderBottom: isActive && "3px solid rgb(46,108,111)",
+                        borderLeft: isActive && "3px solid rgb(95,170,160)",
                     })}
                     end
                     >
