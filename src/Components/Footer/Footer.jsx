@@ -1,6 +1,5 @@
 import { Box, Button, Typography, useTheme } from '@mui/material'
 import logo from "../../assets/logo/logo.png"
-import logo2 from "../../assets/logo/logo2.png"
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
