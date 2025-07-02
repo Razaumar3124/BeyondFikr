@@ -1,11 +1,12 @@
 import { Box, Button, Card, CardContent, IconButton, Typography, useTheme } from '@mui/material'
 import trainingImg from "../../assets/servicesImgs/trainingImg.jpg"
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import React, { useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import hakimaImg from "../../assets/AboutPageImg/hakimaimg.jpg"
+import pranitaImg from "../../assets/AboutPageImg/Pranitaimg.jpg"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,22 +16,22 @@ const AboutSec2 = () => {
 
     const teamList = [
       {
-        img: "",
+        img: hakimaImg,
         position: "Founder & Director",
         name: "Hakima Shaikh",
         role: "Counseling Psychoogist",
         summary: "",
         instaP: "",
-        linkedinP: "",
+        linkedinP: "https://www.linkedin.com/in/hakima-shaikh-904b0a234?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       },
       {
-        img: "",
+        img: pranitaImg,
         position: "Co-founder",
-        name: "Pranita Singh",
+        name: "Pranita Mane",
         role: "Counseling",
         summary: "",
         instaP: "",
-        linkedinP: "",
+        linkedinP: "https://www.linkedin.com/in/pranita-mane-898693245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       },
     ]
 
@@ -91,7 +92,7 @@ const AboutSec2 = () => {
                   />
                   <Box 
                   component="img"
-                  src={trainingImg}
+                  src={val.img}
                   sx={{width: "300px",height: "250px",position: "absolute",left: "30px",bottom: "40px",borderRadius: "10px"}}
                   />
                 </Box>
@@ -131,12 +132,10 @@ const AboutSec2 = () => {
                   <Box
                   sx={{position: "absolute",top: "0px",right: "0px"}}
                   >
-                    <NavLink>
-                      <IconButton>
-                        <InstagramIcon sx={{color: "rgb(255,1,160)",fontSize: "35px"}}/>
-                      </IconButton>
-                    </NavLink>
-                    <NavLink>
+                    <NavLink
+                    to={val.linkedinP}
+                    target='_blank'
+                    >
                       <IconButton>
                         <LinkedInIcon sx={{color: "rgb(0,123,182)",fontSize: "35px"}}/>
                       </IconButton>

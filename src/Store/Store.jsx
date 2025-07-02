@@ -7,10 +7,11 @@ const useStore = create((set) => ({
   error: null,
 
   fetchData: async () => {
+    console.log("fetchData called ✅"); // <-- Add this
     set({ loading: true, error: null });
     try {
-      // Assuming db.json is served at http://localhost:3000 (or adjust the URL based on your setup)
-      const response = await axios.get("http://172.20.10.13:3000/users");
+      const response = await axios.get("https://beyondfikrdb.onrender.com/db");
+      console.log("API Response:", response.data); // <-- Add this
       set({ data: response.data, loading: false });
     } catch (error) {
       set({ error: error.message, loading: false });

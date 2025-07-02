@@ -14,23 +14,23 @@ const HomeSec5 = () => {
     const QuestionList = [
         {
             question: "How can I enroll?",
-            answer: "Enrolling is easy! Just visit our sign-up page, fill in the required details, and youre all set to start your journey with us."
+            answer: "You can enroll by signing up through our website. Just fill out a short form and select the service that best fits your needs."
         },
         {
             question: "Who can benefit from this program?",
-            answer: "Anyone looking to improve their mental well-being can take part. Its especially beneficial for professionals seeking tools for stress relief, self-development, and mindfulness."
+            answer: "Anyone seeking emotional well-being, personal growth, or support through life challenges—students, professionals, and individuals from all walks of life—can benefit from our services."
         },
         {
             question: "How is the content delivered?",
-            answer: "We provide a blend of online materials, including videos, articles, and interactive sessions to cater to different learning styles and ensure a comprehensive understanding."
+            answer: "Through a blend of interactive online modules, video sessions, and personal guidance, tailored to your pace and preferences."
         },
         {
             question: "Is there a community aspect?",
-            answer: "Yes, we encourage forming connections among participants. Our community forum is a great place to share experiences, support one another, and grow together."
+            answer: "Yes, we offer a safe and supportive community space for discussions, group activities, and peer learning."
         },
         {
-            question: "How is the content delivered?",
-            answer: "We provide a blend of online materials, including videos, articles, and interactive sessions to cater to different learning styles and ensure a comprehensive understanding."
+            question: "Is my information kept confidential?",
+            answer: "Absolutely. Your privacy is our priority. All personal data and interactions are kept strictly confidential and handled with the utmost care, following industry-standard security practices."
         },
     ]
 

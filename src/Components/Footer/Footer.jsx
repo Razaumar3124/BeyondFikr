@@ -22,7 +22,7 @@ const Footer = () => {
     },
     {
       name: "Policy Privacy",
-      path: ""
+      path: "/policy"
     },
     {
       name: "Feedback",

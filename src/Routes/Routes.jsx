@@ -6,6 +6,7 @@ import HeroPage from "../Pages/HeroPage";
 import AboutusPage from "../Pages/AboutusPage";
 import ContactPage from "../Pages/ContactPage";
 import ServicesPage from "../Pages/ServicesPage";
+import PrivacyPolicy from "../Pages/PrivacyPolicy";
 
 let routes = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ let routes = createBrowserRouter([
                 path: "contact",
                 element: <ContactPage />
             },
+            {
+                path: "policy",
+                element: <PrivacyPolicy />
+            }
         ]
     },
     {
