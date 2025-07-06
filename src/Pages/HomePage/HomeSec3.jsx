@@ -36,7 +36,7 @@ const HomeSec3 = () => {
 
         gsap.fromTo(
             tl,
-            { opacity: 0, x: 70 },
+            { opacity: 0, x: 30 },
             {
                 opacity: 1,
                 x: 0,
