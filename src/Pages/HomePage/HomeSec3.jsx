@@ -78,16 +78,19 @@ const HomeSec3 = () => {
                 >
                     We provide a range of psychological training programs designed to enhance emotional resilience and mental clarity. Our services are tailored to help you strengthen your mind, develop coping strategies, and foster a supportive community. Whether youre seeking personal growth or professional development, our programs are here to guide you on your journey.
                 </Typography>
-                <NavLink
-                to="/services"
-                >
+                
                     <Button
                     variant='outlined'
-                    sx={{border: "2px solid black",color: "black"}}
+                    sx={{border: "2px solid black",color: "black",width: {xs: "40%",md: "25%"}}}
                     >
-                        Learn More
+                        <NavLink
+                        to="/services"
+                        style={{color: "black",textDecorationLine: "none"}}
+                        >
+                            Learn More
+                        </NavLink>
+
                     </Button>
-                </NavLink>
             </Box>
             <Box
             sx={{width: {xs: "100%",md: "50%"},display: "flex",justifyContent: "center",alignItems: "center"}}

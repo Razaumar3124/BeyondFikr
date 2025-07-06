@@ -120,10 +120,7 @@ const HomeSec5 = () => {
                     sx={{
                         color: "blue", 
                         padding: "7px 0", 
-                        borderLeft: "none",
-                        borderRight: "none",
                         borderTop: "1px solid blue",
-                        borderBottom: "1px solid blue", 
                         boxShadow: "none",
                         borderRadius: 0, 
                         "&:before": {display: "none"}}}

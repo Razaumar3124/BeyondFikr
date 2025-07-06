@@ -10,20 +10,21 @@ const HomeSec1 = () => {
     <Box
     sx={{
     height: {xs: "90vh",md: "100vh"},
-    backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 70%, rgba(255,255,255,1) 100%), url(${heroImg})`,
+    backgroundImage: `url(${heroImg})`,
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "cover",
     display: "flex",
-    justifyContent: "center",
+    justifyContent: {xs: "center",md: "left"},
     alignItems: "center",
     }}
     >
         <Box
         sx={{
-          width: {xs: "80%",md: "45%"},
-          height: {xs: "45%",md: "30%"},
+          width: {xs: "80%",md: "35%"},
+          height: {xs: "50%",md: "45%"},
           marginBottom: "70px",
+          ml: "3%",
           borderRadius: "10px",
           display: "flex",
           flexDirection: "column",
@@ -31,6 +32,10 @@ const HomeSec1 = () => {
           justifyContent: "center",
           gap: {xs: "10px",md: "5px"},
           wordSpacing: "-7px",
+          backgroundColor: "rgba(255, 255, 255, 0.05)", // Slightly increased opacity for visibility
+          backdropFilter: "blur(10px)", // Keep strong background blur
+          WebkitBackdropFilter: "blur(10px)", // Cross-browser compatibility
+          boxShadow: "0 0 60px 25px rgba(255, 255, 255, 0.05)", // White glow for outward blur
         }}
         >
             <Typography

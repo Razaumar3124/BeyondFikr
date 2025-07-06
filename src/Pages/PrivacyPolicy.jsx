@@ -12,7 +12,7 @@ const PrivacyPolicy = () => {
     const sections = [
       {
         heading: '1. Information We Collect',
-        content: 'We may collect the following types of information: \n- **Personal Information**: Name, email address, phone number (only if you provide it via contact forms or messages). \n- **Usage Data**: Data about how you interact with our page (likes, comments, shares, time spent, etc.). \n- **Cookies and Analytics**: If you visit our website, we may collect cookies and analytics data to improve our services.',
+        content: 'We may collect the following types of information: \n- Personal Information: Name, email address, phone number (only if you provide it via contact forms or messages). \n- Usage Data: Data about how you interact with our page (likes, comments, shares, time spent, etc.). \n- Cookies and Analytics: If you visit our website, we may collect cookies and analytics data to improve our services.',
       },
       {
         heading: '2. How We Use Your Information',
