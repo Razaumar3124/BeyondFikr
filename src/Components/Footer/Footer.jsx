@@ -25,7 +25,7 @@ const Footer = () => {
       path: "/policy"
     },
     {
-      name: "Feedback",
+      name: "Blogs",
       path: ""
     },
   ]
