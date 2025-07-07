@@ -7,6 +7,7 @@ import AboutusPage from "../Pages/AboutusPage";
 import ContactPage from "../Pages/ContactPage";
 import ServicesPage from "../Pages/ServicesPage";
 import PrivacyPolicy from "../Pages/PrivacyPolicy";
+import TermsAndConditions from "../Pages/TermsAndConditions";
 
 let routes = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ let routes = createBrowserRouter([
             {
                 path: "policy",
                 element: <PrivacyPolicy />
+            },
+            {
+                path: "terms",
+                element: <TermsAndConditions />
             }
         ]
     },

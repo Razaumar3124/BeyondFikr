@@ -100,61 +100,8 @@ const Login = () => {
     }
   };
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-
-    console.log('Identifier:', identifier); // Debug
-    console.log('Password:', password); // Debug
-    console.log('Data:', data); // Debug
-
-    const trimmedIdentifier = identifier.trim();
-    const trimmedPassword = password.trim();
-
-    if (!trimmedIdentifier) {
-      toast.error('Please enter email or contact number', {
-        position: 'top-center',
-        autoClose: 3000,
-      });
-      return;
-    }
-
-    if (!trimmedPassword) {
-      toast.error('Please enter password', {
-        position: 'top-center',
-        autoClose: 3000,
-      });
-      return;
-    }
-
-    if (!data) {
-      toast.error('User data not loaded. Please try again.', {
-        position: 'top-center',
-        autoClose: 3000,
-      });
-      return;
-    }
-
-    const user = data.find((user) => {
-      const emailMatch = user.email?.trim() === trimmedIdentifier;
-      const contactMatch = user.contact?.trim() === trimmedIdentifier;
-      const passwordMatch = user.password?.trim() === trimmedPassword;
-      console.log(`User: ${user.email}, Email: ${emailMatch}, Contact: ${contactMatch}, Password: ${passwordMatch}`); // Debug
-      return (emailMatch || contactMatch) && passwordMatch;
-    });
-
-    if (user) {
-      toast.success('Login successful!', {
-        position: 'top-center',
-        autoClose: 2000,
-      });
-      navigate('/nav');
-    } else {
-      toast.error('Invalid email/contact or password', {
-        position: 'top-center',
-        autoClose: 3000,
-      });
-    }
-  };
+  
+    
 
   return (
     <Box sx={{
@@ -176,19 +123,22 @@ const Login = () => {
         justifyContent: "center",
         alignItems: "center",
       }}>
-        <Box ref={formRef} component="form" onSubmit={handleLogin} sx={{
-            border: "1px solid rgb(106,184,204)",
-            width: { xs: "90%", sm: "70%", md: "50%", lg: "70%" },
-            borderRadius: "10px",
-            display: "flex",
-            flexDirection: "column",
-            gap: "10px",
-            alignItems: "center",
-            padding: { xs: "30px 10px", sm: "15px", md: "20px", lg: "20px" },
-            willChange: "transform, opacity",
-            backgroundColor: "rgb(255,255,255)",
-            backdropFilter: "blur(100px)",
-            WebkitBackdropFilter: "blur(100px)",
+        <Box 
+        ref={formRef} 
+        component="form"
+        sx={{
+          border: "1px solid rgb(106,184,204)",
+          width: { xs: "90%", sm: "70%", md: "50%", lg: "70%" },
+          borderRadius: "10px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+          alignItems: "center",
+          padding: { xs: "30px 10px", sm: "15px", md: "20px", lg: "20px" },
+          willChange: "transform, opacity",
+          backgroundColor: "rgb(255,255,255)",
+          backdropFilter: "blur(100px)",
+          WebkitBackdropFilter: "blur(100px)",
         }}>
           <Box
             ref={logoRef}
@@ -212,7 +162,6 @@ const Login = () => {
               type="text"
               required
               value={identifier}
-              onChange={(e) => setIdentifier(e.target.value)}
               InputProps={{
                 sx: {
                   color: `${theme.palette.custom.theme1}`,

@@ -18,7 +18,7 @@ const Footer = () => {
     },
     {
       name: "Terms & Conditions",
-      path: ""
+      path: "/terms"
     },
     {
       name: "Policy Privacy",

@@ -1,13 +1,16 @@
-import { Box, Typography } from '@mui/material'
-import trainingImg from "../../assets/servicesImgs/trainingImg.jpg"
+import { Box, Typography, useTheme } from '@mui/material'
 import React, { useEffect } from 'react'
 import { useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
+import aboutImg from "../../assets/AboutPageImg/aboutImg.jpg"
+import { Bolt } from '@mui/icons-material'
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutSec1 = () => {
+
+  const theme = useTheme();
   
   const AnimateRef = useRef(null);
   const ParaRef = useRef(null);
@@ -39,7 +42,7 @@ const AboutSec1 = () => {
         opacity: 1,
         y: 0,
         x: 0,
-        duration: 1,
+        duration: 2,
         ease: "power3.out",
         scrollTrigger: {
           trigger: el,
@@ -75,7 +78,7 @@ const AboutSec1 = () => {
             </Box>
             <Box
               component="img"
-              src={trainingImg}
+              src={aboutImg}
               ref={AnimateRef}
               sx={{
                 position: "absolute",
@@ -91,14 +94,22 @@ const AboutSec1 = () => {
           </Box>
         </Box>
         <Box
-        sx={{width: {xs: "100%",md: "50%"},display: "flex",justifyContent: "center",alignItems: "center"}}
+        sx={{width: {xs: "100%",md: "50%"},display: "flex",justifyContent: {xs: "center",md: "left"},alignItems: "center"}}
         >
           <Box
           ref={ParaRef}
           sx={{width: "80%"}}
           >
-            <Typography>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, saepe tempore maxime dolores animi id amet ducimus optio, iure, molestiae facilis sapiente cupiditate nesciunt eum doloremque nulla? Architecto soluta explicabo eaque minima accusantium ut ipsa itaque et recusandae officia! Laudantium earum velit vero ea rerum quisquam, unde vel praesentium, perspiciatis accusamus quae obcaecati sint quod dolorum, laboriosam temporibus esse dolor sed. Hic quibusdam excepturi id sunt sint dignissimos voluptatem consequuntur? Fuga ex atque molestiae quis, illo veritatis alias obcaecati, repellendus quos sit quas eveniet assumenda? Doloribus optio aperiam ipsum quam id consequuntur maiores asperiores, nulla voluptates quis, fuga ratione a at quos harum architecto veritatis aliquid in. Laboriosam beatae, odit nam temporibus eum praesentium doloribus tempora amet rem fuga mollitia omnis facere ab! Non mollitia modi qui impedit distinctio sunt atque odit numquam sapiente, aliquid aut itaque fuga, recusandae vitae totam accusantium alias, consectetur nihil explicabo voluptas ad cupiditate. Eos quas eum repudiandae minus facere. Eum porro quidem iure molestias accusantium impedit omnis, velit voluptas! Neque expedita officia quibusdam corporis. Tenetur, ducimus doloribus blanditiis ab possimus magnam incidunt at minima soluta similique praesentium nihil vel nam. Fugit repellendus quaerat sapiente possimus expedita, ipsam eligendi qui a excepturi. Doloribus, illum animi.
+            <Typography sx={{fontFamily: theme.palette.custom.fontfamily}}>
+              <Typography component="span" sx={{fontSize: {xs: "1.5em",md: "2.5em"}, fontFamily: theme.palette.custom.fontfamily, wordSpacing: "-8px"}}>
+                At Beyond Fikr
+              </Typography>, we believe healing begins in a space where you're held emotionally, mentally, and spiritually. Our approach is rooted in safety, non-judgment, and compassion. Whether you're experiencing anxiety, inner conflict, or emotional heaviness, our goal is to offer secure space where you can pause, reflect, and begin again. We understand that before healing can begin, one must feel seen, heard, and supported — and that’s where we start.
+            </Typography>
+            <Typography sx={{fontFamily: theme.palette.custom.fontfamily}}>
+              The name Beyond Fikr reflects the journey we walk with you moving past fikr worry, fear, and emotional chaos toward clarity, strength, and resilience. Just like a plant that rises from nurturing hands toward the light, we believe transformation happens naturally when you're met with care, empathy, and evidence-based tools. Our sessions are not just about coping they're about discovering your own capacity to thrive, grow, and move beyond limitations.
+            </Typography>
+            <Typography sx={{fontFamily: theme.palette.custom.fontfamily}}>
+              Beyond Fikr isn’t just therapy it’s a quiet revolution of hope, emotional rebirth, and the rediscovery of inner peace. You're not alone and you were never meant to heal alone.
             </Typography>
           </Box>
         </Box>

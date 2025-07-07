@@ -41,7 +41,7 @@ const AboutSec3 = () => {
         opacity: 1,
         x: 0,
         y: 0,
-        duration: 1,
+        duration: 2,
         ease: "power3.out",
         scrollTrigger: {
           trigger: tl,
@@ -74,7 +74,6 @@ const AboutSec3 = () => {
                 </Typography>
                 <Typography
                 variant='body1'
-                sx={{}}
                 >
                     We provide comprehensive and tailored training programs aimed at empowering students, professionals, and organizations with essential psychological skills and emotional intelligence. Our offerings focus on enhancing mental health awareness through practical, real-life applications and are grounded in proven, evidence-based approaches. These programs are thoughtfully structured to foster resilience, self-awareness, and effective communication—equipping participants to thrive personally and professionally.
                 </Typography>
