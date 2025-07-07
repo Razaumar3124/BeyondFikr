@@ -60,7 +60,12 @@ const Footer = () => {
       boxShadow: "0px 0px 10px 0px rgba(0, 0, 0, 0.2)"
     }}>
       <Box
-      sx={{padding: {xs: "20px",md: "40px"},display: "flex",flexWrap: "wrap",justifyContent: {xs: "center",md: "space-evenly"},gap: {xs: "30px",md: "150px"}}}
+      sx={{padding: {xs: "20px",md: "40px"},
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: {xs: "center",md: "space-evenly"},
+      gap: {xs: "30px",lg: "150px"}
+      }}
       >
         <Box
         sx={{display: "flex",flexDirection: "column",alignItems:"center", minWidth: "300px",border: ""}}
@@ -84,7 +89,7 @@ const Footer = () => {
           </Typography>
         </Box>
         <Box
-        sx={{minWidth: {xs: "150px",sm: "250px"},display: "flex",flexDirection: "column",alignItems: "center",gap: "20px"}}
+        sx={{minWidth: "270px",display: "flex",flexDirection: "column",alignItems: "center",gap: "20px"}}
         >
           <Typography
           variant='h5'
@@ -117,7 +122,7 @@ const Footer = () => {
           </Box>
         </Box>
         <Box
-        sx={{minWidth: {xs: "150px",md: "270px"},display: "flex",flexDirection: "column",alignItems: "center",gap: "20px"}}
+        sx={{minWidth: "270px",display: "flex",flexDirection: "column",alignItems: "center",gap: "20px"}}
         >
           <Typography
           variant='h5'
@@ -126,7 +131,7 @@ const Footer = () => {
             Follow Us
           </Typography>
           <Box
-          sx={{display: "flex",flexWrap: "wrap", justifyContent: "center",gap: "15px", width: {xs: "150px",md: "270px"},minWidth: {xs: "150px",md: "250px"}}}
+          sx={{display: "flex",flexWrap: "wrap", justifyContent: "center",gap: "15px", width: "270px",minWidth: {xs: "150px",md: "250px"}}}
           >
             {followBtn.map((val,i)=>{
               return(
