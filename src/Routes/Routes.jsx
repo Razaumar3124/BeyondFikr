@@ -1,6 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import Login from "../Pages/Login";
-import SignUp from "../Pages/SignUp";
 import HomePage from "../Pages/HomePage";
 import HeroPage from "../Pages/HeroPage";
 import AboutusPage from "../Pages/AboutusPage";
@@ -8,6 +6,8 @@ import ContactPage from "../Pages/ContactPage";
 import ServicesPage from "../Pages/ServicesPage";
 import PrivacyPolicy from "../Pages/PrivacyPolicy";
 import TermsAndConditions from "../Pages/TermsAndConditions";
+import LoginPage from "../Pages/LoginPage";
+import SignupPage from "../Pages/SignupPage";
 
 let routes = createBrowserRouter([
     {
@@ -41,13 +41,13 @@ let routes = createBrowserRouter([
         ]
     },
     {
-        path: "/login",
-        element: <Login />
+        path: "/log",
+        element: <LoginPage />
     },
     {
-        path: "/signup",
-        element: <SignUp />
-    }
+        path: "/sign",
+        element: <SignupPage />
+    },
 ])
 
 export default routes

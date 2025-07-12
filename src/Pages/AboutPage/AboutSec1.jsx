@@ -57,6 +57,7 @@ const AboutSec1 = () => {
     <Box sx={{
       display: "flex",
       flexWrap: "wrap",
+      mt: "30px"
     }}>
         <Box
         sx={{
@@ -100,15 +101,16 @@ const AboutSec1 = () => {
           ref={ParaRef}
           sx={{width: "80%"}}
           >
-            <Typography sx={{fontFamily: theme.palette.custom.fontfamily}}>
-              <Typography component="span" sx={{fontSize: {xs: "1.5em",md: "2.5em"}, fontFamily: theme.palette.custom.fontfamily, wordSpacing: "-8px"}}>
+            <Typography 
+            variant='subtitle1'>
+              <Typography component="span" sx={{fontSize: {xs: "1.5em",md: "2.5em"}}}>
                 At Beyond Fikr
-              </Typography>, we believe healing begins in a space where you're held emotionally, mentally, and spiritually. Our approach is rooted in safety, non-judgment, and compassion. Whether you're experiencing anxiety, inner conflict, or emotional heaviness, our goal is to offer secure space where you can pause, reflect, and begin again. We understand that before healing can begin, one must feel seen, heard, and supported — and that’s where we start.
+              </Typography>, we believe healing begins in a space where you're held emotionally, mentally, and spiritually. Our approach is rooted in safety, non-judgment, and compassion. Whether you're experiencing anxiety, inner conflict, or emotional heaviness, our goal is to offer secure space where you can pause, reflect, and begin again. We understand that before healing can begin, one must feel seen, heard, and supported and that’s where we start.
             </Typography>
-            <Typography sx={{fontFamily: theme.palette.custom.fontfamily}}>
+            <Typography variant='subtitle1'>
               The name Beyond Fikr reflects the journey we walk with you moving past fikr worry, fear, and emotional chaos toward clarity, strength, and resilience. Just like a plant that rises from nurturing hands toward the light, we believe transformation happens naturally when you're met with care, empathy, and evidence-based tools. Our sessions are not just about coping they're about discovering your own capacity to thrive, grow, and move beyond limitations.
             </Typography>
-            <Typography sx={{fontFamily: theme.palette.custom.fontfamily}}>
+            <Typography variant='subtitle1'>
               Beyond Fikr isn’t just therapy it’s a quiet revolution of hope, emotional rebirth, and the rediscovery of inner peace. You're not alone and you were never meant to heal alone.
             </Typography>
           </Box>

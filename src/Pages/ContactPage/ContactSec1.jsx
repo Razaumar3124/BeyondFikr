@@ -49,15 +49,15 @@ const ContactSec1 = () => {
     const onSubmit = async (data) => {
         const time_date = new Date().toLocaleString();
         const finalMessage = `
-Name: ${data.full_name}
-Age: ${data.age}
-Phone: ${data.phone_no}
-Email: ${data.email}
-Date/Time: ${time_date}
+            Name: ${data.full_name}
+            Age: ${data.age}
+            Phone: ${data.phone_no}
+            Email: ${data.email}
+            Date/Time: ${time_date}
 
-Message:
-${data.msg}
-        `;
+            Message:
+            ${data.msg}
+                    `;
 
         try {
             // Create a temporary form element to hold our values

@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import axios from "axios";
+const api = import.meta.env.VITE_API_PATH
 
 const useStore = create((set) => ({
   data: [],
@@ -7,11 +8,10 @@ const useStore = create((set) => ({
   error: null,
 
   fetchData: async () => {
-    console.log("fetchData called ✅"); // <-- Add this
     set({ loading: true, error: null });
     try {
-      const response = await axios.get("https://beyondfikrdb.onrender.com/db");
-      console.log("API Response:", response.data); // <-- Add this
+      const response = await axios.get(`${api}/db`);
+      // console.log(response.data);
       set({ data: response.data, loading: false });
     } catch (error) {
       set({ error: error.message, loading: false });

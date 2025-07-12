@@ -60,7 +60,7 @@ const AboutSec3 = () => {
       marginTop: "50px"
     }}>
         <Box
-        sx={{width: {xs: "100%",md: "50%"},display: "flex",justifyContent: "center",alignItems: "center"}}
+        sx={{width: {xs: "100%",md: "50%"},display: "flex",justifyContent: "right",alignItems: "center"}}
         >
             <Box 
             ref={ParaRef}
@@ -73,9 +73,9 @@ const AboutSec3 = () => {
                     Our Training Program
                 </Typography>
                 <Typography
-                variant='body1'
+                variant='subtitle1'
                 >
-                    We provide comprehensive and tailored training programs aimed at empowering students, professionals, and organizations with essential psychological skills and emotional intelligence. Our offerings focus on enhancing mental health awareness through practical, real-life applications and are grounded in proven, evidence-based approaches. These programs are thoughtfully structured to foster resilience, self-awareness, and effective communication—equipping participants to thrive personally and professionally.
+                    We provide comprehensive and tailored training programs aimed at empowering students, professionals, and organizations with essential psychological skills and emotional intelligence. Our offerings focus on enhancing mental health awareness through practical, real-life applications and are grounded in proven, evidence-based approaches. These programs are thoughtfully structured to foster resilience, self-awareness, and effective communication equipping participants to thrive personally and professionally.
                 </Typography>
                 <NavLink to="/services">
                     <Button

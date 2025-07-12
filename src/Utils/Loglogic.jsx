@@ -5,7 +5,7 @@ const Loglogic = () => {
   return (
     <>
         <NavLink 
-              to='/login'
+              to='/log'
               style={{textDecorationLine: "none",color: "black", whiteSpace: "nowrap"}}
               end
             >
