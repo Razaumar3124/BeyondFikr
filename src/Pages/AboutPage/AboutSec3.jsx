@@ -60,7 +60,7 @@ const AboutSec3 = () => {
       marginTop: "50px"
     }}>
         <Box
-        sx={{width: {xs: "100%",md: "50%"},display: "flex",justifyContent: "right",alignItems: "center"}}
+        sx={{width: {xs: "100%",md: "50%"},display: "flex",justifyContent: {xs: "center",md: "right"},alignItems: "center"}}
         >
             <Box 
             ref={ParaRef}

@@ -97,8 +97,9 @@ const SignupPage = () => {
             <PwdInputF ref={leftRef} name="Password" mt="5px" />
 
             <Box 
-            sx={{ width: {xs: "85%",md: "77%"}, }}>
+            sx={{ width: {xs: "85%",md: "77%"} }}>
                 <FormControlLabel
+                sx={{display: "flex",alignItems: "start"}}
                 control={
                   <Checkbox
                     sx={{
@@ -119,7 +120,7 @@ const SignupPage = () => {
                     variant="body1"
                     sx={{ color: `${theme.palette.custom.theme1}`, fontSize: {xs: "13px" ,md: "14px"}, ml: "3px", cursor: 'pointer' }}
                   >
-                    Remember for 30 days
+                    By signing up you accept the <Typography component="span" sx={{color: "green"}}>Term of service</Typography> and <Typography component="span" sx={{color: "green"}}>Privacy policy</Typography>
                   </Typography>
                 }
               />
