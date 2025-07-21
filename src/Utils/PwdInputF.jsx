@@ -2,7 +2,7 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { IconButton, InputAdornment, TextField, useTheme } from '@mui/material';
 import React, { useState } from 'react';
 
-const PwdInputF = ({ name, mt }) => {
+const PwdInputF = ({ ref, name, mt, method, error, helpertxt }) => {
   const theme = useTheme();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -13,6 +13,10 @@ const PwdInputF = ({ name, mt }) => {
       id="outlined-adornment-password"
       type={showPassword ? 'text' : 'password'}
       label={name}
+      ref={ref}
+      onChange={method}
+      error={!!error}
+      helperText={helpertxt}
       required
       sx={{ width: {xs: "90%",md: "80%"}, mt: mt }}
       InputProps={{

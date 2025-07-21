@@ -1,14 +1,18 @@
 import { Box, Button, Checkbox, FormControlLabel, Typography, useTheme } from '@mui/material'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import loginimg from "../assets/login_signup_imgs/bgimg1.jpg";
 import logo1 from "../assets/logo/logo.png";
 import NormalInputF from '../Utils/NormalInputF';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PwdInputF from '../Utils/PwdInputF';
+import useStore from '../Store/Store';
 
 const LoginPage = () => {
 
     const theme = useTheme();
+    const navigate = useNavigate();
+
+    //mobile view height set Start
 
     const setVh = () => {
       let vh = window.innerHeight * 0.01;
@@ -17,6 +21,98 @@ const LoginPage = () => {
     
     setVh();
     window.addEventListener('resize', setVh);
+
+    //mobile view height set End
+
+    //login logic Start
+
+    const {
+      logEmail,
+      logPassword,
+      logEmailError,
+      logPasswordError,
+      setLogEmail,
+      setLogPassword,
+      validate,
+      rememberMe,
+      setRememberMe,
+    } = useStore();
+
+    let users = useStore((state) => state.data.Users);  
+
+    useEffect(() => {
+      const remembered = JSON.parse(localStorage.getItem('rememberedUser')) || 
+                         JSON.parse(sessionStorage.getItem('sessionUser'));
+      
+      if (remembered) {
+        const thirtyDays = 30 * 24 * 60 * 60 * 1000;
+        if (Date.now() - remembered.timestamp < thirtyDays) {
+          setLogEmail(remembered.email); // ✅ Autofill only email
+          setRememberMe(true);
+        } else {
+          localStorage.removeItem('rememberedUser');
+        }
+      }
+    }, []);
+
+    const handleSubmit = (e)=>{
+      e.preventDefault();
+      
+      if (validate()) {
+        const matchUser = users.find(
+          (user)=> user.email === logEmail && user.password === logPassword
+        );
+
+        if (matchUser) {
+          // console.log("login successful", matchUser);
+
+          const userData = {
+            email: logEmail,
+            timestamp: Date.now()
+          };
+          
+          if (rememberMe) {
+            localStorage.setItem('rememberedUser', JSON.stringify(userData));
+            sessionStorage.removeItem('sessionUser');
+          } else {
+            sessionStorage.setItem('sessionUser', JSON.stringify(userData));
+            localStorage.removeItem('rememberedUser');
+          }
+
+          navigate("/");
+        } else {
+          alert("invalid email or password!");
+        }
+      }
+    };
+
+    const handleEmailChange = (e)=>{
+      setLogEmail(e.target.value);
+    };
+
+    const handlePasswordChange = (e)=>{
+      setLogPassword(e.target.value);
+    }
+
+    //login logic End
+
+    //Login Animation Start
+
+    let leftRef = useRef(null);
+    let rightRef = useRef(null);
+    let btnRef = useRef(null);
+    let leftAnimation = useStore((state) => state.sideAnimation);
+    let rightAnimation = useStore((state)=>state.sideAnimation);
+    let btnAnimation = useStore((state)=>state.sideAnimation);
+    
+
+    useEffect(() => {
+      leftAnimation(leftRef, "-100px", "0px"); 
+      rightAnimation(rightRef, "100px", "0px");
+      btnAnimation(btnRef, "0px", "30px");
+    }, []);
+
+    //Login Animation End
 
   return (
     <Box sx={{
@@ -32,6 +128,7 @@ const LoginPage = () => {
     }}>
         <Box
         component="form"
+        onSubmit={handleSubmit}
         sx={{
             ml: {lg: "6%"},
             width: { xs: "90%", sm: "70%", md: "50%", lg: "35%" },
@@ -73,15 +170,17 @@ const LoginPage = () => {
                 </Typography>
             </Box>
 
-            <NormalInputF name="Email" mt="15px" />
+            <NormalInputF ref={leftRef} name="Email" mt="15px" type="email" method={handleEmailChange} error={logEmailError} helpertxt={logEmailError} />
 
-            <PwdInputF name="Password" mt="5px" />
+            <PwdInputF ref={rightRef} name="Password" mt="5px" method={handlePasswordChange} error={!!logPasswordError} helpertxt={logPasswordError} />
 
             <Box 
             sx={{ width: {xs: "85%",md: "76%"}, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <FormControlLabel
                 control={
                   <Checkbox
+                    checked={rememberMe}
+                    onChange={(e) => setRememberMe(e.target.checked)}
                     sx={{
                       m: 0,
                       p: 0,
@@ -110,6 +209,7 @@ const LoginPage = () => {
             <Button
               variant="outlined"
               type="submit"
+              ref={btnRef}
               sx={{
                 width: {xs: "90%",md: "80%"},
                 color: `${theme.palette.custom.theme1}`,

@@ -1,10 +1,11 @@
 import { Box, Button, Checkbox, FormControlLabel, Typography, useTheme } from '@mui/material'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Signupimg from "../assets/login_signup_imgs/bgimg2.jpg";
 import logo1 from "../assets/logo/logo.png";
 import NormalInputF from '../Utils/NormalInputF';
 import { Link } from 'react-router-dom';
 import PwdInputF from '../Utils/PwdInputF';
+import useStore from '../Store/Store';
 
 const SignupPage = () => {
 
@@ -17,6 +18,22 @@ const SignupPage = () => {
     
     setVh();
     window.addEventListener('resize', setVh);
+
+    let leftRef = useRef(null);
+    let aleftRef = useRef(null);
+    let rightRef = useRef(null);
+    let btnRef = useRef(null);
+    let leftAnimation = useStore((state) => state.sideAnimation);
+    let rightAnimation = useStore((state)=>state.sideAnimation);
+    let btnAnimation = useStore((state)=>state.sideAnimation);
+    
+
+    useEffect(() => {
+      leftAnimation(leftRef, "-100px", "0px"); 
+      rightAnimation(rightRef, "100px", "0px");
+      btnAnimation(btnRef, "0px", "30px");
+      leftAnimation(aleftRef, "-100px", "0px"); 
+    }, []);
 
   return (
     <Box sx={{
@@ -73,11 +90,11 @@ const SignupPage = () => {
                 </Typography>
             </Box>
 
-            <NormalInputF name="Email" type="email" mt="15px" />
+            <NormalInputF ref={aleftRef} name="Email" type="email" mt="15px" />
 
-            <NormalInputF name="Contact" type="tel" mt="5px" />
+            <NormalInputF ref={rightRef} name="Contact" type="tel" mt="5px" />
             
-            <PwdInputF name="Password" mt="5px" />
+            <PwdInputF ref={leftRef} name="Password" mt="5px" />
 
             <Box 
             sx={{ width: {xs: "85%",md: "77%"}, }}>
@@ -111,6 +128,7 @@ const SignupPage = () => {
             <Button
               variant="outlined"
               type="submit"
+              ref={btnRef}
               sx={{
                 width: {xs: "90%",md: "80%"},
                 color: `${theme.palette.custom.theme1}`,

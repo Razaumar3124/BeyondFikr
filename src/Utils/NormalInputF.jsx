@@ -1,15 +1,19 @@
 import { TextField, useTheme } from '@mui/material'
 import React from 'react'
 
-const NormalInputF = ({ name, type, mt }) => {
+const NormalInputF = ({ ref, name, mt, type, method, error, helpertxt }) => {
 
     const theme = useTheme();
 
   return (
     <TextField
     label={name}
+    ref={ref}
     variant="outlined"
     type={type}
+    onChange={method}
+    error={!!error}
+    helperText={helpertxt}
     required
     sx={{ width: {xs: "90%",md: "80%"}, mt: mt }}
     InputProps={{
@@ -29,10 +33,7 @@ const NormalInputF = ({ name, type, mt }) => {
         borderColor: `${theme.palette.custom.theme1}`,
         },
     },
-    pattern: "[0-9]{10}",
     title: "Phone number must be 10 digits",
-    inputMode: "numeric",
-    maxLength: 10,
     }}
     InputLabelProps={{
     sx: {
