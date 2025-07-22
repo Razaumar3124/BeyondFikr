@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import Signupimg from "../assets/login_signup_imgs/bgimg2.jpg";
 import logo1 from "../assets/logo/logo.png";
 import NormalInputF from '../Utils/NormalInputF';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PwdInputF from '../Utils/PwdInputF';
 import useStore from '../Store/Store';
 
@@ -35,6 +35,31 @@ const SignupPage = () => {
       leftAnimation(aleftRef, "-100px", "0px"); 
     }, []);
 
+    const {
+      email,
+      mobile,
+      password,
+      agree,
+      errors,
+      setEmail,
+      setMobile,
+      setPassword,
+      setAgree,
+      submit,
+      fetchData
+    } = useStore();
+
+    const navigate = useNavigate();
+
+    const handleSubmit = async(e) => {
+      e.preventDefault();
+      const success = await submit();
+      if (success) {
+        await fetchData();      // ✅ Refresh latest data
+        navigate("/log");     // ✅ Navigate after update
+      }
+    }
+
   return (
     <Box sx={{
         height: "calc(var(--vh, 1vh) * 100)",
@@ -49,6 +74,7 @@ const SignupPage = () => {
     }}>
         <Box
         component="form"
+        onSubmit={handleSubmit}
         sx={{
             mr: {lg: "6%"},
             width: { xs: "90%", sm: "70%", md: "50%", lg: "35%" },
@@ -90,11 +116,11 @@ const SignupPage = () => {
                 </Typography>
             </Box>
 
-            <NormalInputF ref={aleftRef} name="Email" type="email" mt="15px" />
+            <NormalInputF ref={aleftRef} name="Email" type="email" mt="15px" method={(e) => setEmail(e.target.value)} error={!!errors.email} helpertxt={errors.email} />
 
-            <NormalInputF ref={rightRef} name="Contact" type="tel" mt="5px" />
+            <NormalInputF ref={rightRef} name="Contact" type="tel" mt="5px" method={(e) => setMobile(e.target.value)} error={!!errors.mobile} helpertxt={errors.mobile} />
             
-            <PwdInputF ref={leftRef} name="Password" mt="5px" />
+            <PwdInputF ref={leftRef} name="Password" mt="5px" method={(e) => setPassword(e.target.value)} error={!!errors.password} helpertxt={errors.password} />
 
             <Box 
             sx={{ width: {xs: "85%",md: "77%"} }}>
@@ -102,6 +128,8 @@ const SignupPage = () => {
                 sx={{display: "flex",alignItems: "start"}}
                 control={
                   <Checkbox
+                    checked={agree}
+                    onChange={(e) => setAgree(e.target.checked)}
                     sx={{
                       m: 0,
                       p: 0,
@@ -125,6 +153,11 @@ const SignupPage = () => {
                 }
               />
             </Box>
+            {errors.agree && (
+              <Typography color="error" variant="caption">
+                {errors.agree}
+              </Typography>
+            )}
             
             <Button
               variant="outlined"
@@ -142,7 +175,7 @@ const SignupPage = () => {
                 fontSize: "17px"
               }}
             > 
-                Register
+              Register
             </Button>
 
             <Typography 
@@ -152,7 +185,7 @@ const SignupPage = () => {
                 <Link style={{ color: "green", textDecorationLine: "none" }} 
                 to="/log"
                 >
-                    Login
+                  Login
                 </Link>
           </Typography>
 

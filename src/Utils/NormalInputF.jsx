@@ -3,7 +3,7 @@ import React from 'react'
 
 const NormalInputF = ({ ref, name, mt, type, method, error, helpertxt }) => {
 
-    const theme = useTheme();
+  const theme = useTheme();
 
   return (
     <TextField

@@ -38,7 +38,7 @@ const LoginPage = () => {
       setRememberMe,
     } = useStore();
 
-    let users = useStore((state) => state.data.Users);  
+    let users = useStore((state) => state.data.users);  
 
     useEffect(() => {
       const remembered = JSON.parse(localStorage.getItem('rememberedUser')) || 
