@@ -2,6 +2,7 @@ import { create } from "zustand";
 import axios from "axios";
 import gsap from "gsap";
 import { toast } from "react-toastify";
+import bcrypt from "bcryptjs";
 const api = import.meta.env.VITE_API_PATH
 
 
@@ -32,46 +33,47 @@ const useStore = create((set, get) => ({
   logPassword: "",
   logEmailError: "",
   logPasswordError: "",
-
+  
   setLogEmail: (logEmail) => set({ logEmail }),
   setLogPassword: (logPassword) => set({ logPassword }),
-
+  
   setLogEmailError: (msg) => set({ logEmailError: msg }),
   setLogPasswordError: (msg) => set({ logPasswordError: msg }),
-
+  
   rememberMe: false,
   setRememberMe: (val) => set({ rememberMe: val }),
-
-  validate: ()=>{
+  
+  validate: () => {
     let isValid = true;
-    set((state)=>{
+    set((state) => {
       const updates = {};
-
-      if (!state.logEmail){
+  
+      if (!state.logEmail) {
         updates.logEmailError = "Email is required";
         isValid = false;
-      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.logEmail)){
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.logEmail)) {
         updates.logEmailError = "Invalid email format";
         isValid = false;
       } else {
         updates.logEmailError = "";
       }
-
-      if (!state.logPassword){
+  
+      if (!state.logPassword) {
         updates.logPasswordError = "Password is required";
         isValid = false;
-      } else if (state.logPassword.length < 8 || state.logPassword.length > 16){
+      } else if (state.logPassword.length < 8 || state.logPassword.length > 16) {
         updates.logPasswordError = "Password must be between 8 to 16 characters";
         isValid = false;
       } else {
         updates.logPasswordError = "";
       }
-
+  
       return updates;
     });
-
+  
     return isValid;
   },
+  
 
   //login validation End
 
@@ -94,7 +96,7 @@ const useStore = create((set, get) => ({
 
   setEmail: (value) => set({ email: value }),
   setMobile: (value) => set({ mobile: value }),
-  setPassword: (value) => set({ password: value }),
+  setPassword: (value) => set({ password: value.trim() }),
   setIsAdmin: (value) => set({ isAdmin: value }),
   setAgree: (value) => set({ agree: value }),
 
@@ -166,6 +168,104 @@ const useStore = create((set, get) => ({
   },
 
   //Signup validation End
+
+  //Forgot Password updation Start
+
+  forgotEmail: "",
+  forgotsuccessMsg: "",
+  forgoterrorMsg: "",
+  forgotLoading: false,
+
+  setforgotEmail: (value) => set({ forgotEmail: value }),
+  resetMessages: () => set({ forgotsuccessMsg: "", forgoterrorMsg: "" }),
+  resetPassword: async () => {
+    set({ forgotLoading: true, forgotsuccessMsg: "", forgoterrorMsg: "" });
+  
+    try {
+      const email = get().forgotEmail?.trim(); // Trim to avoid whitespace issues
+  
+      if (!email) {
+        set({
+          forgoterrorMsg: "Email is required.",
+          forgotLoading: false,
+        });
+        return;
+      }
+  
+      const response = await axios.post(`${api}/api/auth/forgot-password`, {
+        email,
+      });
+  
+      // Optionally check response message from backend
+      if (response.status === 200) {
+        set({
+          forgotEmail: "",
+          forgotsuccessMsg: response.data.message || "If the email exists, a reset link has been sent.",
+          forgotLoading: false,
+        });
+      } else {
+        set({
+          forgoterrorMsg: "Unexpected response. Please try again.",
+          forgotLoading: false,
+        });
+      }
+    } catch (error) {
+      console.error("RESET PASSWORD ERROR:", error.response?.data || error.message);
+  
+      set({
+        forgoterrorMsg: error.response?.data?.message || "Something went wrong. Please try again later.",
+        forgotLoading: false,
+      });
+    }
+  },
+
+  //Forgot Password updation End
+
+// 🔐 Reset Password State Slice (in useStore)
+
+newPassword: '',
+confirmPassword: '',
+
+// Status & messages
+resetLoading: false,
+resetSuccessMsg: '',
+resetErrorMsg: '',
+
+// Setters
+setNewPassword: (value) => set({ newPassword: value }),
+setConfirmPassword: (value) => set({ confirmPassword: value }),
+
+// 🔄 Reset Password API Action
+resetPasswordAction: async (token, newPassword) => {
+  set({ resetLoading: true, resetErrorMsg: "", resetSuccessMsg: "" });
+  console.log("Sending reset request with: ", { token, newPassword });
+  try {
+    const response = await axios.post(`${api}/api/auth/reset-password`, {
+      token,
+      newPassword,
+    });
+    useStore.getState().fetchData();
+    set({ resetSuccessMsg: response.data.message, resetLoading: false });
+  } catch (error) {
+    set({
+      resetErrorMsg:
+        error.response?.data?.message || "Something went wrong",
+      resetLoading: false,
+    });
+  }
+},
+
+// 🧹 Optional: Clear/reset the entire password reset state manually
+clearResetState: () =>
+  set({
+    resetSuccessMsg: '',
+    resetErrorMsg: '',
+    resetLoading: false,
+    newPassword: '',
+    confirmPassword: ''
+  }),
+
+  //Reset Password Validation End
 
   //Animation code Start
   

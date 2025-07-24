@@ -8,6 +8,9 @@ import PrivacyPolicy from "../Pages/PrivacyPolicy";
 import TermsAndConditions from "../Pages/TermsAndConditions";
 import LoginPage from "../Pages/LoginPage";
 import SignupPage from "../Pages/SignupPage";
+import ForgotPassword from "../Pages/ForgotPassword";
+import ResetPassword from "../Pages/ResetPassword";
+import ErrorPage from "../Pages/ErrorPage";
 
 let routes = createBrowserRouter([
     {
@@ -48,6 +51,18 @@ let routes = createBrowserRouter([
         path: "/sign",
         element: <SignupPage />
     },
+    {
+        path: "/forgot",
+        element: <ForgotPassword />
+    },
+    {
+        path: "/reset",
+        element: <ResetPassword />
+    },
+    {
+        path: "*",
+        element: <ErrorPage />
+    }
 ])
 
 export default routes
