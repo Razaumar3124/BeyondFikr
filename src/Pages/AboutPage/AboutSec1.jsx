@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
-import aboutImg from "../../assets/AboutPageImg/aboutImg.jpg"
+import aboutImg from "../../assets/AboutPageImg/aboutimg.jpg"
 import useStore from '../../Store/Store'
 
 gsap.registerPlugin(ScrollTrigger);
