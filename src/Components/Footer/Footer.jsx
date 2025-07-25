@@ -5,7 +5,7 @@ import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import XIcon from '@mui/icons-material/X';
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
 
@@ -34,12 +34,12 @@ const Footer = () => {
     {
       icon: <InstagramIcon sx={{color: "white",fontSize: "40px"}} />,
       bcolor: "rgb(225, 48, 108)",
-      path: ""
+      path: "https://www.instagram.com/beyondfikr?igsh=NmE4ZHQyMXFxbjBl&utm_source=qr"
     },
     {
       icon: <FacebookOutlinedIcon sx={{color: "white",fontSize: "40px"}} />,
       bcolor: "blue",
-      path: ""
+      path: "https://www.facebook.com/profile.php?id=61578703563075"
     },
     {
       icon: <WhatsAppIcon sx={{color: "white",fontSize: "40px"}} />,
@@ -52,6 +52,10 @@ const Footer = () => {
       path: ""
     },
   ]
+
+  const handleClick = (path) => {
+    window.open(path, "_blank"); // opens in a new tab
+  }
 
   return (
     <Box sx={{
@@ -138,6 +142,7 @@ const Footer = () => {
                 <Button
                 key={i}
                 variant='contained'
+                onClick={()=>{handleClick(val.path)}}
                 sx={{bgcolor: `${val.bcolor}`, width: "54px", minWidth: "54px",borderRadius: "250px"}}
                 >
                   {val.icon}

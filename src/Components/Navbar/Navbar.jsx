@@ -42,6 +42,10 @@ const Navbar = () => {
     },
   }));
 
+  const handleClick = () => {
+    window.open("https://forms.gle/UuGzqKgcFPYtxJd77", "_blank");
+  }
+
   return (
     <Box
       sx={{
@@ -144,6 +148,7 @@ const Navbar = () => {
           )}
         </Box>
         <Button
+          onClick={()=>handleClick()}
           variant='contained'
           sx={{
             fontSize: { xs: "10px", md: "13px" },

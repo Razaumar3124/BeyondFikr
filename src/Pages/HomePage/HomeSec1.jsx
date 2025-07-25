@@ -1,6 +1,7 @@
 import { Box, Button, Typography, useTheme } from '@mui/material'
 import heroImg from "../../assets/HeroSecImg/heroimg3.png"
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 
 const HomeSec1 = () => {
 
@@ -60,7 +61,12 @@ const HomeSec1 = () => {
             variant='outlined'
             sx={{marginTop: "10px",padding: "10px 30px",borderColor: "black",color: "black"}}
             >
-              Know more
+              <NavLink
+              to="/aboutus"
+              style={{ textDecorationLine: "none", color: "black" }}
+              >
+                Know more
+              </NavLink>
             </Button>
         </Box>
     </Box>

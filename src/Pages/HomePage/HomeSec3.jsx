@@ -17,8 +17,8 @@ const HomeSec3 = () => {
     const sideAnim = useStore((state) => state.sideAnimation);
   
     useEffect(() => {
-      sideAnim(ParaRef, 70);
-      sideAnim(ImgRef, -70);
+      sideAnim(ParaRef, 40);
+      sideAnim(ImgRef, -40);
     }, []);
 
   return (

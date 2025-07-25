@@ -106,7 +106,7 @@ const ContactSec1 = () => {
                     sx={{
                         fontFamily: theme.palette.custom?.fontfamily,
                         fontWeight: "bold",
-                        fontSize: "40px"
+                        fontSize: {xs: "33px",md: "40px"}
                     }}
                 >
                     Get In Touch

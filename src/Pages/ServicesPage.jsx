@@ -17,29 +17,38 @@ const ServicesPage = () => {
     {
       img: individualImg,
       title: "Individual Therapy",
-      summary: "A safe and supportive one-on-one space to explore your thoughts, feelings, and patterns. Our therapists work with you to understand your challenges and help you build clarity, emotional resilience, and inner balance at your own pace."
+      summary: "A safe and supportive one-on-one space to explore your thoughts, feelings, and patterns. Our therapists work with you to understand your challenges and help you build clarity, emotional resilience, and inner balance at your own pace.",
+      path: "https://forms.gle/Cw4esDQTEEYNQLyu9",
     },
     {
       img: groupTherapyImg,
       title: "Group Therapy",
-      summary: "Healing through connection. Group therapy offers a safe, shared space to learn, grow, and support one another. Guided by a skilled therapist, these sessions allow you to relate, reflect, Heal and feel less alone in your journey."
+      summary: "Healing through connection. Group therapy offers a safe, shared space to learn, grow, and support one another. Guided by a skilled therapist, these sessions allow you to relate, reflect, Heal and feel less alone in your journey.",
+      path: "https://forms.gle/Hk1qiiodPFphaueR7",
     },
     {
       img: coupleImg,
       title: "Couple Therapy",
-      summary: "Strengthen your bond with honest conversations and guided support. Whether you're navigating conflict or deepening your connection, couple therapy helps partners understand each other better and grow together."
+      summary: "Strengthen your bond with honest conversations and guided support. Whether you're navigating conflict or deepening your connection, couple therapy helps partners understand each other better and grow together.",
+      path: "https://forms.gle/tymcemRHraNG1WCi7",
     },
     {
       img: trainingImg,
       title: "Training Programs",
-      summary: "We offer structured training programs for students, professionals, and organizations to build psychological skills, emotional intelligence, and mental health awareness. Each program is designed with real-world applicability and evidence-based practices."
+      summary: "We offer structured training programs for students, professionals, and organizations to build psychological skills, emotional intelligence, and mental health awareness. Each program is designed with real-world applicability and evidence-based practices.",
+      path: "https://forms.gle/z7FjdoJg1LE1ryDj7",
     },
     {
       img: workshopImg,
       title: "Workshops",
-      summary: "Interactive and insightful, our workshops cover a wide range of essential mental health topics—from stress management to self-awareness. Thoughtfully designed to spark reflection and equip you with practical tools for everyday emotional well-being."
+      summary: "Interactive and insightful, our workshops cover a wide range of essential mental health topics—from stress management to self-awareness. Thoughtfully designed to spark reflection and equip you with practical tools for everyday emotional well-being.",
+      path: "https://forms.gle/cnhz3GzhnwYoGb33A",
     },
   ]
+
+  const handleClick = (path) => {
+    window.open(path, "_blank")
+  }
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -93,17 +102,13 @@ const ServicesPage = () => {
           >
             {val.summary}
           </Typography>
-          <NavLink 
-            style={{color: "white", textDecorationLine: "none"}}
-            >
-              <Button
-              variant='contained'
-              sx={{bgcolor: 'black',width: '100%'}}
-              >
-                  Book appointment
-              </Button>
-          </NavLink>
-          
+          <Button
+          variant='contained'
+          onClick={()=>handleClick(val.path)}
+          sx={{bgcolor: 'black',width: '100%'}}
+          >
+              Book appointment
+          </Button>
         </Box>
       ))}
     </Box>

@@ -1,8 +1,9 @@
-import { List, Typography, Button, styled, Tooltip } from '@mui/material';
+import { List, Typography, Button, styled, Tooltip, useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const Loglogic = () => {
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const rememberedUser = JSON.parse(localStorage.getItem('rememberedUser'));
   const sessionUser = JSON.parse(sessionStorage.getItem('sessionUser'));
@@ -67,10 +68,11 @@ const Loglogic = () => {
         <Typography
           variant='body1'
           sx={{
-            fontFamily: "Poppins",
+            fontFamily: theme.palette.custom.fontfamily,
             fontWeight: "bold",
             fontSize: "20px",
-            cursor: "pointer"
+            cursor: "pointer",
+            wordSpacing: "-4px"
           }}
           onClick={() => navigate('/log')}
         >
