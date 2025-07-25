@@ -269,12 +269,12 @@ clearResetState: () =>
 
   //Animation code Start
   
-  sideAnimation: (leftAnimateRef, x, y ) => {
+  sideAnimation: (leftAnimateRef, x, y, op ) => {
     const el = leftAnimateRef.current;
 
     gsap.fromTo(
       el,
-      { opacity: 0, x: x , y: y },
+      { opacity: op, x: x , y: y },
       {
         opacity: 1,
         x: 0,

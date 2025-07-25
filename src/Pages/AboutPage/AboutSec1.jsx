@@ -5,6 +5,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 import aboutImg from "../../assets/AboutPageImg/aboutImg.jpg"
 import { Bolt } from '@mui/icons-material'
+import useStore from '../../Store/Store'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,46 +13,16 @@ const AboutSec1 = () => {
 
   const theme = useTheme();
   
-  const AnimateRef = useRef(null);
-  const ParaRef = useRef(null);
+  const leftRef = useRef(null);
+  const righttopRef = useRef(null);
+  const rightbtmRef = useRef(null);
+  const sideAnim = useStore((state) => state.sideAnimation);
 
-  useEffect(()=>{
-    const tl = ParaRef.current;
-    const el = AnimateRef.current;
-
-    gsap.fromTo(
-      tl,
-      { opacity: 0, x: 100 },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: tl,
-          start: "top 90%",
-          toggleActions: "play none none none"
-        }
-      }
-    )
-
-    gsap.fromTo(
-      el,
-      { opacity: 0, x: -40,y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        x: 0,
-        duration: 2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        }
-      }
-    )
-  },[]);
+  useEffect(() => {
+    sideAnim(leftRef, -100, 0);
+    sideAnim(righttopRef, -40, 40);
+    sideAnim(rightbtmRef, 40, -40, 1);
+  }, []);
 
   return (
     <Box sx={{
@@ -69,18 +40,21 @@ const AboutSec1 = () => {
         }}
         >
           <Box sx={{position: "relative",marginRight: {xs: "10%",md: "5%"}}}>
-            <Box sx={{
+            <Box 
+            ref={rightbtmRef}
+            sx={{
               width: {xs: "300px",md: "400px"},
               height: {xs: "300px",md: "400px"},
               borderRadius: "10px",
               clipPath: "polygon(0 0, 100% 100%, 0 100%)",
-              background: "linear-gradient(90deg, #3498db 0%, #2c3e50 100%)"
+              background: "linear-gradient(90deg, #3498db 0%, #2c3e50 100%)",
+              zIndex: -1,
             }}>
             </Box>
             <Box
               component="img"
               src={aboutImg}
-              ref={AnimateRef}
+              ref={righttopRef}
               sx={{
                 position: "absolute",
                 bottom: "40px",
@@ -98,7 +72,7 @@ const AboutSec1 = () => {
         sx={{width: {xs: "100%",md: "50%"},display: "flex",justifyContent: {xs: "center",md: "left"},alignItems: "center"}}
         >
           <Box
-          ref={ParaRef}
+          ref={leftRef}
           sx={{width: "80%"}}
           >
             <Typography 

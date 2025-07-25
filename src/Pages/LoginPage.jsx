@@ -109,9 +109,9 @@ const LoginPage = () => {
   const sideAnim = useStore((state) => state.sideAnimation);
 
   useEffect(() => {
-    sideAnim(leftRef, "-100px", "0px");
-    sideAnim(rightRef, "100px", "0px");
-    sideAnim(btnRef, "0px", "30px");
+    sideAnim(leftRef, "-100", "0");
+    sideAnim(rightRef, "100", "0");
+    sideAnim(btnRef, "0", "30");
   }, []);
 
   return (

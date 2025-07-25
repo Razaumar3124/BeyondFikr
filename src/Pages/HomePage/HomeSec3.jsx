@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import useStore from '../../Store/Store';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,43 +14,12 @@ const HomeSec3 = () => {
 
     const ParaRef = useRef(null);
     const ImgRef = useRef(null);
-
-    useEffect(()=>{
-        const el = ParaRef.current;
-        const tl = ImgRef.current;
-
-        gsap.fromTo(
-            el,
-            { opacity: 0, x: -70 },
-            {
-                opacity: 1,
-                x: 0,
-                duration: 2,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top 90%",
-                    toggleActions: "play none none none"
-                }
-            }
-        )
-
-        gsap.fromTo(
-            tl,
-            { opacity: 0, x: 30 },
-            {
-                opacity: 1,
-                x: 0,
-                duration: 1.5,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: tl,
-                    start: "top 90%",
-                    toggleActions: "play none none none"
-                }
-            }
-        )
-    },[])
+    const sideAnim = useStore((state) => state.sideAnimation);
+  
+    useEffect(() => {
+      sideAnim(ParaRef, 70);
+      sideAnim(ImgRef, -70);
+    }, []);
 
   return (
     <Box>

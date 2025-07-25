@@ -1,12 +1,11 @@
 import { Box, Button, Card, CardContent, IconButton, Typography, useTheme } from '@mui/material'
-import trainingImg from "../../assets/servicesImgs/trainingImg.jpg"
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import React, { useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import hakimaImg from "../../assets/AboutPageImg/hakimaimg.jpg"
-import pranitaImg from "../../assets/AboutPageImg/Pranitaimg.jpg"
+import hakimaImg from "../../assets/AboutPageImg/hakima5.jpg"
+import pranitaImg from "../../assets/AboutPageImg/Pranita6.jpg"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -81,19 +80,19 @@ const AboutSec2 = () => {
               sx={{ maxWidth: 365 }}
               >
                 <Box
-                sx={{height: "310px",display: "flex",flexDirection: "column",justifyContent: "end",position: "relative"}}
+                sx={{height: "420px",display: "flex",flexDirection: "column",justifyContent: "end",position: "relative"}}
                 >
                   <Box
                   sx={{
                     height: "50%",
-                    background: "linear-gradient(#667eea 50%, #764ba2 100%)",
+                    background: "linear-gradient(135deg, #3B1515 0%, #732C2C 100%)",
                     borderRadius: "8px"
                   }}
                   />
                   <Box 
                   component="img"
                   src={val.img}
-                  sx={{width: "300px",height: "250px",position: "absolute",left: "30px",bottom: "40px",borderRadius: "10px"}}
+                  sx={{width: "300px",height: "350px",position: "absolute",left: "30px",bottom: "40px",borderRadius: "10px"}}
                   />
                 </Box>
                 <CardContent 

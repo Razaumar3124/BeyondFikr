@@ -126,7 +126,7 @@ const ContactSec1 = () => {
                     <NavLink
                         key={i}
                         to={val.path}
-                        style={{ textDecorationLine: "none", color: "black" }}
+                        style={{ textDecorationLine: "none", color: "blue" }}
                     >
                         <Typography
                             variant="body1"
