@@ -4,7 +4,6 @@ import { useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 import aboutImg from "../../assets/AboutPageImg/aboutImg.jpg"
-import { Bolt } from '@mui/icons-material'
 import useStore from '../../Store/Store'
 
 gsap.registerPlugin(ScrollTrigger);
