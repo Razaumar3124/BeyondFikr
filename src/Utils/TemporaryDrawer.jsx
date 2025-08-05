@@ -40,7 +40,7 @@ const TemporaryDrawer = ({ open, toggleDrawer }) => {
   const HSAC = [
     { navName: "Home", navigateTo: "/" },
     { navName: "Services", navigateTo: "/services" },
-    { navName: "About Us", navigateTo: "/aboutus" },
+    { navName: "About Us", navigateTo: "/about" },
     { navName: "Contact", navigateTo: "/contact" },
   ];
 

@@ -14,7 +14,7 @@ const Footer = () => {
   const exploreList = [
     {
       name: "About Us",
-      path: "/aboutus"
+      path: "/about"
     },
     {
       name: "Terms & Conditions",
@@ -49,7 +49,7 @@ const Footer = () => {
     {
       icon: <XIcon sx={{color: "white",fontSize: "30px"}} />,
       bcolor: "black",
-      path: ""
+      path: "https://x.com/BeyondFikr"
     },
   ]
 

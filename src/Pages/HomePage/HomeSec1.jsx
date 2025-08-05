@@ -62,7 +62,7 @@ const HomeSec1 = () => {
             sx={{marginTop: "10px",padding: "10px 30px",borderColor: "black",color: "black"}}
             >
               <NavLink
-              to="/aboutus"
+              to="/about"
               style={{ textDecorationLine: "none", color: "black" }}
               >
                 Know more

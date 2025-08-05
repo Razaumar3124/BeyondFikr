@@ -26,7 +26,7 @@ let routes = createBrowserRouter([
                 element: <ServicesPage />
             },
             {
-                path: "aboutus",
+                path: "about",
                 element: <AboutusPage />
             },
             {
