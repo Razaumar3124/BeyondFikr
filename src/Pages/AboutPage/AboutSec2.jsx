@@ -19,7 +19,7 @@ const AboutSec2 = () => {
         position: "Founder & Director",
         name: "Hakima Shaikh",
         role: "Counseling Psychologist",
-        summary: "Clinical Psychologist (Master’s in Psychology) and educator with 4+ years’ experience helping diverse individuals grow beyond emotional overwhelm into strength and clarity blending empathy, creativity, and inclusive care.",
+        summary: "Clinical Psychologist (Master’s in Psychology, Modern College of Arts, Science and Commerce) and educator with 4+ years’ experience helping diverse individuals grow beyond emotional overwhelm into strength and clarity—blending empathy, creativity, and inclusive care.",
         linkedinP: "https://www.linkedin.com/in/hakima-shaikh-904b0a234?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       },
       {
@@ -27,7 +27,7 @@ const AboutSec2 = () => {
         position: "Co-founder",
         name: "Pranita Mane",
         role: "Counseling Psychologist",
-        summary: "Compassionate mental health practitioner (Master’s in Psychology) with 4+ years’ experience, blending clinical insight and empathy to help individuals, couples, and groups navigate anxiety, relationships, and emotional growth.",
+        summary: "Compassionate mental health practitioner (Master’s in Psychology, Modern College of Arts, Science and Commerce) with 4+ years’ experience, blending clinical insight and empathy to help individuals, couples, and groups navigate anxiety, relationships, and emotional growth.",
         linkedinP: "https://www.linkedin.com/in/pranita-mane-898693245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       },
     ]
