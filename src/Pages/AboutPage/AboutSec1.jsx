@@ -38,7 +38,7 @@ const AboutSec1 = () => {
           alignItems: "center"
         }}
         >
-          <Box sx={{position: "relative",marginRight: {xs: "8%",md: "5%"}}}>
+          <Box sx={{position: "relative",marginRight: {xs: "15%",md: "5%"}}}>
             <Box 
             ref={rightbtmRef}
             sx={{
