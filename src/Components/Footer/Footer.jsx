@@ -24,10 +24,10 @@ const Footer = () => {
       name: "Policy Privacy",
       path: "/policy"
     },
-    {
-      name: "Blogs",
-      path: ""
-    },
+    // {
+    //   name: "Blogs",
+    //   path: ""
+    // },
   ]
 
   const followBtn = [
