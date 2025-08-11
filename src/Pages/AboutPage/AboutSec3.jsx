@@ -84,10 +84,10 @@ const AboutSec3 = () => {
               ref={lefttopRef}
               sx={{
                 position: "absolute",
-                bottom: "40px",
-                right: "40px",
-                width: {xs: "250px",md: "400px"},
-                height: {xs: "250px",md: "400px"},
+                bottom: "20px",
+                right: "20px",
+                width: {xs: "270px",md: "400px"},
+                height: {xs: "270px",md: "400px"},
                 objectFit: "cover",
                 borderRadius: "8px",
                 zIndex: 1
