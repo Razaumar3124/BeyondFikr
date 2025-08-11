@@ -2,10 +2,10 @@ import { Box, Button, Typography, useTheme } from '@mui/material'
 import logo from "../../assets/logo/logo.png"
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import XIcon from '@mui/icons-material/X';
 import React from 'react'
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
 
@@ -42,9 +42,9 @@ const Footer = () => {
       path: "https://www.facebook.com/profile.php?id=61578703563075"
     },
     {
-      icon: <WhatsAppIcon sx={{color: "white",fontSize: "40px"}} />,
-      bcolor: "green",
-      path: ""
+      icon: <LinkedInIcon sx={{color: "white",fontSize: "40px"}} />,
+      bcolor: "radial-gradient(white 50%, blue 50%)",
+      path: "https://www.linkedin.com/in/beyond-fikr-851b91378/"
     },
     {
       icon: <XIcon sx={{color: "white",fontSize: "30px"}} />,
