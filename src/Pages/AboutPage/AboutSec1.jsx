@@ -56,8 +56,8 @@ const AboutSec1 = () => {
               ref={righttopRef}
               sx={{
                 position: "absolute",
-                bottom: "40px",
-                left: "40px",
+                bottom: "20px",
+                left: "20px",
                 width: {xs: "280px",md: "400px"},
                 height: {xs: "280px",md: "400px"},
                 objectFit: "cover",
