@@ -42,7 +42,7 @@ const HomeSec5 = () => {
 
     gsap.fromTo(
       el,
-      { opacity: 0, x: -70 },
+      { opacity: 0, x: -30 },
       {
         opacity: 1,
         x: 0,

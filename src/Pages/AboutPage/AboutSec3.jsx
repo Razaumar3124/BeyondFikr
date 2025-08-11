@@ -1,5 +1,5 @@
 import { Box, Button, Typography, useTheme } from '@mui/material'
-import trainingImg from "../../assets/servicesImgs/NewImage.jpg"
+import trainingImg from "../../assets/servicesImgs/trainingImg.jpg"
 import React, { useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom';
 import gsap from 'gsap';
@@ -18,7 +18,7 @@ const AboutSec3 = () => {
   const sideAnim = useStore((state) => state.sideAnimation);
 
   useEffect(() => {
-    sideAnim(rightRef, 100, 0);
+    sideAnim(rightRef, 30, 0);
     sideAnim(lefttopRef, 40, 40);
     sideAnim(leftbtmRef, -40, -40, 1);
   }, []);

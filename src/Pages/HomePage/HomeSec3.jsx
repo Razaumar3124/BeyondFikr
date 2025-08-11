@@ -1,5 +1,5 @@
 import { Box, Button, Typography, useTheme } from '@mui/material'
-import servicesImg from "../../assets/HomePageImgs/servicesImg.jpg"
+import servicesImg from "../../assets/HomePageImgs/NewImage.jpg"
 import React, { useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom';
 import gsap from 'gsap';
@@ -17,8 +17,8 @@ const HomeSec3 = () => {
     const sideAnim = useStore((state) => state.sideAnimation);
   
     useEffect(() => {
-      sideAnim(ParaRef, 40);
-      sideAnim(ImgRef, -40);
+      sideAnim(ParaRef, 30);
+      sideAnim(ImgRef, -30);
     }, []);
 
   return (
@@ -69,7 +69,7 @@ const HomeSec3 = () => {
                 ref={ImgRef}
                 component="img"
                 src={servicesImg}
-                sx={{width: "80%",height: {xs: "300px",md: "80%",lg: "auto"},borderRadius: "20px"}}
+                sx={{width: {xs: "300px",md: "600px"},height: {xs: "300px",md: "500px"},borderRadius: "20px"}}
                 />
             </Box>
         </Box>

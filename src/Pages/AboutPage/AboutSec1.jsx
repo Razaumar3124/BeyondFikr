@@ -18,7 +18,7 @@ const AboutSec1 = () => {
   const sideAnim = useStore((state) => state.sideAnimation);
 
   useEffect(() => {
-    sideAnim(leftRef, -100, 0);
+    sideAnim(leftRef, -30, 0);
     sideAnim(righttopRef, -40, 40);
     sideAnim(rightbtmRef, 40, -40, 1);
   }, []);

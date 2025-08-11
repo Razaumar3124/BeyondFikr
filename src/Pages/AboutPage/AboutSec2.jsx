@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import hakimaImg from "../../assets/AboutPageImg/hakima5.jpg"
-import pranitaImg from "../../assets/AboutPageImg/pranita6.jpg"
+import pranitaImg from "../../assets/AboutPageImg/pranita2.jpg"
 
 gsap.registerPlugin(ScrollTrigger);
 
