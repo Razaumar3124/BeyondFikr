@@ -1,5 +1,5 @@
 import { Box, Button, Typography, useTheme } from '@mui/material'
-import trainingImg from "../../assets/servicesImgs/trainingImg.jpg"
+import trainingImg from "../../assets/servicesImgs/NewImage.jpg"
 import React, { useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom';
 import gsap from 'gsap';
@@ -38,12 +38,13 @@ const AboutSec3 = () => {
             >
                 <Typography
                 variant='body1'
-                sx={{fontFamily: theme.palette.custom.fontfamily,fontWeight: "bold",fontSize: "40px",wordSpacing: "-8px",lineHeight: "50px"}}
+                sx={{fontFamily: theme.palette.custom.fontfamily,fontWeight: "bold",wordSpacing: "-4px",fontSize: {xs: "35px",md: "40px"},lineHeight: "50px"}}
                 >
                     Our Training Program
                 </Typography>
                 <Typography
                 variant='subtitle1'
+                sx={{fontSize: {xs: "15px",md: "18px"}, color: "rgba(0,0,0,0.6)"}}
                 >
                     We provide comprehensive and tailored training programs aimed at empowering students, professionals, and organizations with essential psychological skills and emotional intelligence. Our offerings focus on enhancing mental health awareness through practical, real-life applications and are grounded in proven, evidence-based approaches. These programs are thoughtfully structured to foster resilience, self-awareness, and effective communication equipping participants to thrive personally and professionally.
                 </Typography>
@@ -70,8 +71,8 @@ const AboutSec3 = () => {
             <Box 
             ref={leftbtmRef}
             sx={{
-              width: {xs: "300px",md: "400px"},
-              height: {xs: "300px",md: "400px"},
+              width: {xs: "250px",md: "400px"},
+              height: {xs: "250px",md: "400px"},
               borderRadius: "10px",
               clipPath: "polygon(100% 0, 100% 100%, 0 100%)",
               background: "linear-gradient(90deg, #3498db 0%, #2c3e50 100%)"
@@ -85,8 +86,8 @@ const AboutSec3 = () => {
                 position: "absolute",
                 bottom: "40px",
                 right: "40px",
-                width: {xs: "300px",md: "400px"},
-                height: {xs: "300px",md: "400px"},
+                width: {xs: "250px",md: "400px"},
+                height: {xs: "250px",md: "400px"},
                 objectFit: "cover",
                 borderRadius: "8px",
                 zIndex: 1

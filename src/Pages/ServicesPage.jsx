@@ -5,7 +5,6 @@ import individualImg from "../assets/servicesImgs/individualImg.jpg"
 import trainingImg from "../assets/servicesImgs/trainingImg.jpg"
 import workshopImg from "../assets/servicesImgs/workshopImg.jpg"
 import React, { useEffect, useRef } from 'react'
-import { NavLink } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 
@@ -88,7 +87,7 @@ const ServicesPage = () => {
           <Box 
           component="img"
           src={val.img}
-          sx={{width: "100%",height: "250px",borderRadius: "inherit"}}
+          sx={{width: "100%",height: "300px",borderRadius: "inherit"}}
           />
           <Typography
           variant='body1'

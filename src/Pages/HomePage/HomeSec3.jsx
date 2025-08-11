@@ -25,12 +25,12 @@ const HomeSec3 = () => {
     <Box>
         <Typography
         variant='h6'
-        sx={{padding: {xs: "40px",md: "30px"},display: "flex",textAlign: "center",justifyContent: "center",fontFamily: `${theme.palette.custom.fontfamily}`,fontSize: {xs: "34px",md: "50px"},fontWeight: "bold"}}
+        sx={{padding: {xs: "40px",md: "30px"},display: "flex",textAlign: "center",justifyContent: "center",fontFamily: `${theme.palette.custom.fontfamily}`, wordSpacing: "-2px",fontSize: {xs: "32px",md: "50px"},fontWeight: "bold"}}
         >
             Explore Our Offerings
         </Typography>
         <Box
-        sx={{display: "flex",flexWrap: "wrap-reverse",justifyContent: "center"}}
+        sx={{display: "flex",flexWrap: "wrap-reverse",justifyContent: "center",m: {md: "30px 0"}}}
         >
             <Box
             ref={ParaRef}
@@ -38,7 +38,7 @@ const HomeSec3 = () => {
             >
                 <Typography
                 variant='body1'
-                sx={{fontFamily: theme.palette.custom.fontfamily,fontWeight: "bold",fontSize: "30px"}}
+                sx={{fontFamily: theme.palette.custom.fontfamily,fontWeight: "bold", wordSpacing: "-2px",fontSize: {xs: "25px",md: "35px"}}}
                 >
                     Services That Empower Your Mind
                 </Typography>
@@ -49,18 +49,18 @@ const HomeSec3 = () => {
                     We provide a range of psychological training programs designed to enhance emotional resilience and mental clarity. Our services are tailored to help you strengthen your mind, develop coping strategies, and foster a supportive community. Whether youre seeking personal growth or professional development, our programs are here to guide you on your journey.
                 </Typography>
                 
-                    <Button
-                    variant='outlined'
-                    sx={{border: "2px solid black",color: "black",width: {xs: "40%",md: "25%"}}}
+                <Button
+                variant='outlined'
+                sx={{border: "2px solid black",color: "black",width: {xs: "50%",md: "25%"}}}
+                >   
+                    <NavLink
+                    to="/services"
+                    style={{color: "black",textDecorationLine: "none"}}
                     >
-                        <NavLink
-                        to="/services"
-                        style={{color: "black",textDecorationLine: "none"}}
-                        >
-                            Learn More
-                        </NavLink>
+                        Learn More
+                    </NavLink>
 
-                    </Button>
+                </Button>
             </Box>
             <Box
             sx={{width: {xs: "100%",md: "50%"},display: "flex",justifyContent: "center",alignItems: "center"}}

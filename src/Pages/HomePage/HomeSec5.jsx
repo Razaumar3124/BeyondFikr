@@ -86,12 +86,12 @@ const HomeSec5 = () => {
   };
 
   return (
-    <Box sx={{ marginTop: "40px", overflow: "hidden" }}>
+    <Box sx={{ mt: "10px",overflow: "hidden" }}>
       <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
         <Typography
           variant="body1"
           sx={{
-            fontFamily: `${theme.palette.custom.fontFamily}`,
+            fontFamily: theme.palette.custom.fontfamily,
             fontSize: { xs: "34px", md: "50px" },
             fontWeight: "bold",
           }}
@@ -105,15 +105,16 @@ const HomeSec5 = () => {
             display: "flex",
             textAlign: "center",
             justifyContent: "center",
-            fontFamily: `${theme.palette.custom.fontFamily}`,
+            fontFamily: theme.palette.custom.fontfamily,
             fontSize: { xs: "18px", md: "25px" },
             fontWeight: "bold",
+            color: "rgba(0,0,0,0.7)"
           }}
         >
           Here are some of the most frequently asked questions.
         </Typography>
       </Box>
-      <Box sx={{ marginTop: "10px", display: "flex", flexWrap: "wrap" }}>
+      <Box sx={{ display: "flex", flexWrap: "wrap" }}>
         <Box
           sx={{
             width: { xs: "100%", md: "50%" },
@@ -149,18 +150,18 @@ const HomeSec5 = () => {
               sx={{
                 color: "blue",
                 padding: "7px 0",
-                borderTop: "1px solid brown",
+                borderTop: "1px solid black",
                 boxShadow: "none",
                 borderRadius: 0,
                 "&:before": { display: "none" },
               }}
             >
               <AccordionSummary
-                expandIcon={<ArrowDownwardIcon sx={{ color: "brown" }} />}
+                expandIcon={<ArrowDownwardIcon sx={{ color: "black" }} />}
                 aria-controls={`panel${i}-content`}
                 id={`panel${i}-header`}
               >
-                <Typography component="span" sx={{ color: "brown" }}>{val.question}</Typography>
+                <Typography component="span" sx={{ color: "black" }}>{val.question}</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography sx={{ color: "brown" }}>{val.answer}</Typography>

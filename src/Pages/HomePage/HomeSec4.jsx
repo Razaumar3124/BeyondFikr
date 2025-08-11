@@ -1,5 +1,4 @@
 import { Box, Typography, useTheme } from '@mui/material'
-import clientImg from "../../assets/HomePageImgs/clientimg1.webp"
 import React from 'react'
 import {Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -14,29 +13,67 @@ const HomeSec4 = () => {
     const ClientList = [
         {
             pic: "",
-            msg: "The tools I gained from this training were eye-opening. Now I approach challenges with a clear mind and feel way more resilient!",
-            name: "Michael Lee",
-            position: "Project Manager, Innovative Designs"
+            msg: "Sessions by beyondfikr was a game-changer for managing my stress. The techniques I learned there helped me find calm amidst chaos and approach challenges with confidence!",
+            name: "Ibrahim Khan",
+            init: "I K",
+            position: "Cloud Solutions Engineer",
+            col: "linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%)"
         },
         {
             pic: "",
-            msg: "I loved the focus on emotional strength. It’s given me control over my reactions, which is invaluable in my job!",
-            name: "Emily Carter",
-            position: "Project Manager, Innovative Designs"
+            msg: "The Individual Therapy sessions helped me manage my academic stress so much better. I feel more focused and ready to tackle my studies!",
+            name: "Ananya Sharma",
+            init: "A S",
+            position: "B.Tech Student",
+            col: "linear-gradient(135deg, #43cea2 0%, #185a9d 100%)"
         },
         {
             pic: "",
-            msg: "I loved the focus on emotional strength. It’s given me control over my reactions, which is invaluable in my job!",
-            name: "Emily Carter",
-            position: "Marketing Specialist, Creative Agency"
+            msg: "The Training Program was a revelation! It gave me practical tools to handle work pressure and stay calm during tight deadlines.",
+            name: "Vikram Singh",
+            init: "V S",
+            position: "Software Developer",
+            col: "linear-gradient(135deg, #141e30 0%, #243b55 100%)"
         },
+        {
+            pic: "",
+            msg: "Group Therapy was a safe space to share my challenges. It’s made me more resilient in handling my business’s ups and downs.",
+            name: "Priya Malhotra",
+            init: "P M",
+            position: "Entrepreneur",
+            col: "linear-gradient(135deg, #ff6a88 0%, #ff99ac 100%)"
+        },
+        {
+            pic: "",
+            msg: "Couple Therapy saved us during a tough phase. The sessions taught us how to communicate better and reduce stress together.",
+            name: "Rahul Verma",
+            init: "R V",
+            position: "Marketing Manager",
+            col: "linear-gradient(135deg, #ff4e50 0%, #f9d423 100%)"
+        },
+        {
+            pic: "",
+            msg: "The Workshop on stress management was eye-opening. I now approach my office tasks with a clearer, calmer mindset!",
+            name: "Sneha Patel",
+            init: "S P",
+            position: "HR Executive",
+            col: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)"
+        },
+        {
+            pic: "",
+            msg: "Individual Therapy gave me the strength to balance college and personal life. I feel so much more in control now!",
+            name: "Arjun Nair",
+            init: "A N",
+            position: "MBA Student",
+            col: "linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)"
+        }
     ]
 
   return (
     <Box>
         <Typography
         variant='h6'
-        sx={{padding: "40px",display: "flex",justifyContent: "center",textAlign: "center",fontFamily: `${theme.palette.custom.fontfamily}`,fontSize: {xs: "34px",md: "50px"},fontWeight: "bold"}}
+        sx={{padding: "40px",display: "flex",justifyContent: "center",textAlign: "center",fontFamily: `${theme.palette.custom.fontfamily}`, wordSpacing: "-2px",fontSize: {xs: "32px",md: "50px"},fontWeight: "bold"}}
         >
             What Our Clients Say
         </Typography>
@@ -55,16 +92,32 @@ const HomeSec4 = () => {
             {ClientList.map((val,i)=>(
                 <SwiperSlide key={i} >
                     <Box
-                    sx={{width: "100%",display: "flex",flexDirection: "column",alignItems: "center",gap: {xs: "30px",md: "20px"}}}
+                    sx={{width: "100%",display: "flex",flexDirection: "column",alignItems: "center", justifyContent: "center",gap: {xs: "30px",md: "40px"}}}
                     >
-                        <Box 
-                        component="img"
-                        src={clientImg}
-                        sx={{width: {xs: "130px",md: "110px"},borderRadius: "100%"}}
-                        />
+                        <Box
+                        sx={{
+                            width: { xs: 90, md: 100 },
+                            height: { xs: 90, md: 100 },
+                            background: val.col, // Gradient
+                            display: "flex",
+                            mt: "10px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            fontSize: { xs: 36, md: 40 },
+                            fontWeight: 700,
+                            color: "white",
+                            wordSpacing: "-8px",
+                            borderRadius: "50%",
+                            boxShadow: "0 6px 20px rgba(0, 0, 0, 0.25), 0 0 20px rgba(101, 78, 163, 0.4)", // Glow + shadow
+                            border: "4px solid rgba(255, 255, 255, 0.5)", // Border ring
+                        }}
+                        >
+                        {val.init}
+                        </Box>
+
                         <Typography
                         variant='body1'
-                        sx={{width: {xs: "80%",md: "auto"},fontFamily: `${theme.palette.custom.fontfamily}`,display: "flex",textAlign: "center"}}
+                        sx={{width: "80%",fontFamily: `${theme.palette.custom.fontfamily}`, color: "rgba(0,0,0,0.6)",display: "flex", justifyContent: "center", textAlign: "center", fontSize: {xs: "18px",md: "20px"}}}
                         >
                             {val.msg}
                         </Typography>
@@ -73,13 +126,13 @@ const HomeSec4 = () => {
                         >
                             <Typography
                             variant='h6'
-                            sx={{width: {xs: "80%",md: "auto"},display: "flex",justifyContent: "center",textAlign: "center",fontFamily: `${theme.palette.custom.fontfamily}`,fontSize: "25px",fontWeight: "bold"}}
+                            sx={{display: "flex",justifyContent: "center",textAlign: "center",fontFamily: `${theme.palette.custom.fontfamily}`,fontSize: {xs: "25px",md: "30px"},fontWeight: "bold"}}
                             >
                                 {val.name}
                             </Typography>
                             <Typography
                             variant='subtitle1'
-                            sx={{width: {xs: "80%",md: "auto"},display: "flex",justifyContent: "center",textAlign: "center",fontFamily: `${theme.palette.custom.fontfamily}`}}
+                            sx={{color: "rgba(0,0,0,0.6)", display: "flex",justifyContent: "center",textAlign: "center", fontSize: {xs: "18px",md: "20px"},fontFamily: `${theme.palette.custom.fontfamily}`}}
                             >
                                 {val.position}
                             </Typography>

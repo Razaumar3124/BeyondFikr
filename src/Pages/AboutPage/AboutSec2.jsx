@@ -18,18 +18,16 @@ const AboutSec2 = () => {
         img: hakimaImg,
         position: "Founder & Director",
         name: "Hakima Shaikh",
-        role: "Counseling Psychoogist",
-        summary: "",
-        instaP: "",
+        role: "Counseling Psychologist",
+        summary: "Clinical Psychologist (Master’s in Psychology) and educator with 4+ years’ experience helping diverse individuals grow beyond emotional overwhelm into strength and clarity blending empathy, creativity, and inclusive care.",
         linkedinP: "https://www.linkedin.com/in/hakima-shaikh-904b0a234?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       },
       {
         img: pranitaImg,
         position: "Co-founder",
         name: "Pranita Mane",
-        role: "Counseling",
-        summary: "",
-        instaP: "",
+        role: "Counseling Psychologist",
+        summary: "Compassionate mental health practitioner (Master’s in Psychology) with 4+ years’ experience, blending clinical insight and empathy to help individuals, couples, and groups navigate anxiety, relationships, and emotional growth.",
         linkedinP: "https://www.linkedin.com/in/pranita-mane-898693245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       },
     ]
@@ -66,18 +64,18 @@ const AboutSec2 = () => {
     >
         <Typography
         variant='body1'
-        sx={{fontFamily: theme.palette.custom.fontfamily,fontWeight: "bold",fontSize: {xs: "40px",md: "50px"},display: "flex",justifyContent: "center",textAlign: "center"}}
+        sx={{padding: {xs: "30px",md: "30px"},fontFamily: theme.palette.custom.fontfamily,fontWeight: "bold",wordSpacing: "-4px",fontSize: {xs: "35px",md: "50px"} ,display: "flex",justifyContent: "center",textAlign: "center"}}
         >
             Meet Our Dedicated Team
         </Typography>
         <Box
-        sx={{marginTop: "40px",display: "flex",flexWrap: "wrap",justifyContent: "center",gap: {xs: "70px",md: "100px"}}}
+        sx={{display: "flex",flexWrap: "wrap",justifyContent: "center",gap: {xs: "40px",md: "100px"}}}
         >
             {teamList.map((val,i)=>(
               <Card
               key={i}
               ref={el => (AnimateRef.current[i] = el)}
-              sx={{ maxWidth: 365 }}
+              sx={{ maxWidth: {xs: 320,md: 365} }}
               >
                 <Box
                 sx={{height: "420px",display: "flex",flexDirection: "column",justifyContent: "end",position: "relative"}}
@@ -92,14 +90,14 @@ const AboutSec2 = () => {
                   <Box 
                   component="img"
                   src={val.img}
-                  sx={{width: "300px",height: "350px",position: "absolute",left: "30px",bottom: "40px",borderRadius: "10px"}}
+                  sx={{width: "280px",height: "360px",position: "absolute",left: {xs: "21px",md: "42px"},bottom: "40px",borderRadius: "10px"}}
                   />
                 </Box>
                 <CardContent 
                 sx={{position: "relative",display: "flex",flexDirection: "column",gap: "10px"}}
                 >
                   <Box
-                  sx={{display: "flex",flexDirection: "column",gap: "10px"}}
+                  sx={{display: "flex",flexDirection: "column"}}
                   >
                     <Typography
                     variant='body1'
@@ -123,9 +121,9 @@ const AboutSec2 = () => {
                     </Typography>
                     <Typography
                     variant='body1'
-                    sx={{fontFamily: theme.palette.custom.fontfamily,lineHeight: {xs: "25px",md: "20px"},color: "gray"}}
+                    sx={{fontFamily: theme.palette.custom.fontfamily, mt: "5px",lineHeight: {xs: "25px",md: "auto"},color: "gray"}}
                     >
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, possimus quo ab esse optio, dolorem reprehenderit nostrum, sapiente veniam cum atque nulla? Quasi inventore id culpa quis ullam dignissimos. Rerum.
+                      {val.summary}
                     </Typography>
                   </Box>
                   <Box

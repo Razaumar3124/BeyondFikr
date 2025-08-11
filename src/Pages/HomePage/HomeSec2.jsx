@@ -59,7 +59,7 @@ const HomeSec2 = () => {
     >
         <Typography
         variant='h6'
-        sx={{padding: {xs: "40px",md: "30px"},display: "flex",textAlign: "center",fontFamily: `${theme.palette.custom.fontfamily}`,fontSize: {xs: "34px",md: "50px"},fontWeight: "bold"}}
+        sx={{padding: {xs: "30px",md: "30px"},display: "flex",textAlign: "center",fontFamily: `${theme.palette.custom.fontfamily}`, wordSpacing: "-2px",fontSize: {xs: "32px",md: "50px"},fontWeight: "bold"}}
         >
             Key Benefits of Our Program
         </Typography>
