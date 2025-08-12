@@ -6,6 +6,7 @@ import {
 import { styled } from '@mui/material/styles';
 import { Email as EmailIcon, LockReset as LockResetIcon } from '@mui/icons-material';
 import useStore from '../Store/Store';
+import SEO from '../Components/SEO';
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   width: '100%',
@@ -62,6 +63,17 @@ const ForgotPassword = () => {
   };
 
   return (
+    <>
+    <SEO
+      title="Forgot Password | BeyondFikr"
+      description={`Reset your BeyondFikr account password securely. 
+                  Follow the simple steps to recover your account and regain access to your 
+                  therapy sessions, training programs, and workshops.`}
+      keywords={`BeyondFikr forgot password, Reset BeyondFikr password, Recover BeyondFikr account, 
+                Forgot login credentials BeyondFikr, BeyondFikr account recovery, Password assistance BeyondFikr, 
+                Secure password reset BeyondFikr`}
+      url="https://beyondfikr.com/forgot"
+    />
     <Box
       sx={{
         display: 'flex',
@@ -131,6 +143,7 @@ const ForgotPassword = () => {
         </Box>
       </StyledPaper>
     </Box>
+    </>
   );
 };
 

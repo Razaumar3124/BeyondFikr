@@ -7,6 +7,7 @@ import workshopImg from "../assets/servicesImgs/workshopImg.jpg"
 import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
+import SEO from '../Components/SEO'
 
 const ServicesPage = () => {
 
@@ -76,6 +77,20 @@ const ServicesPage = () => {
   }, []);
 
   return (
+    <>
+    <SEO
+      title="Our Services | BeyondFikr Mental Health & Therapy"
+      description={`Explore BeyondFikr's professional mental health services, including individual therapy, 
+                  group therapy, and couple therapy sessions. We also offer training programs and workshops designed to 
+                  equip individuals and professionals with the skills to support emotional well-being.`}
+      keywords={`BeyondFikr services, BeyondFikr therapy options, Individual therapy BeyondFikr, Group therapy BeyondFikr, 
+                Couple therapy BeyondFikr, Training programs BeyondFikr, Workshops BeyondFikr, Online therapy BeyondFikr, 
+                Mental health counseling India, Licensed counselors BeyondFikr, Holistic therapy services, 
+                Professional therapists BeyondFikr, Therapy for emotional well-being, Mindfulness and therapy BeyondFikr, 
+                Stress management counseling, Anxiety and depression therapy, Relationship counseling BeyondFikr, 
+                Mental wellness guidance, Psychological counseling BeyondFikr, BeyondFikr wellness programs`}
+      url="https://beyondfikr.com/services"
+    />
     <Box
     sx={{padding: {xs: "30px 0px",sm: "30px 60px"},display: "flex",flexWrap: "wrap",justifyContent: {xs: "center"},gap: {xs: "40px",md: "50px"}}}
     >
@@ -111,6 +126,7 @@ const ServicesPage = () => {
         </Box>
       ))}
     </Box>
+    </>
   )
 }
 

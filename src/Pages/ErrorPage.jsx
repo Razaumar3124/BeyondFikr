@@ -8,6 +8,7 @@ import {
   Warning as WarningIcon,
   BrokenImage as BrokenImageIcon
 } from '@mui/icons-material';
+import SEO from '../Components/SEO';
 
 const ErrorPage = () => {
   const theme = useTheme();
@@ -43,6 +44,16 @@ const ErrorPage = () => {
   window.addEventListener("resize", setVh);
 
   return (
+    <>
+    <SEO
+      title="404 Page Not Found | BeyondFikr"
+      description={`The page you are looking for could not be found. 
+                  Return to BeyondFikr's homepage to explore our mental health services, 
+                  therapy sessions, training programs, and workshops.`}
+      keywords={`BeyondFikr 404, Page not found BeyondFikr, Broken link BeyondFikr, 
+                BeyondFikr error page, BeyondFikr homepage redirect, Missing page BeyondFikr`}
+      url="https://beyondfikr.com/404"
+    />
     <Box
       sx={{
         display: 'flex',
@@ -176,6 +187,7 @@ const ErrorPage = () => {
         </motion.div>
       </motion.div>
     </Box>
+    </>
   );
 };
 

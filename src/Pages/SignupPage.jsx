@@ -6,6 +6,7 @@ import NormalInputF from '../Utils/NormalInputF';
 import { Link, useNavigate } from 'react-router-dom';
 import PwdInputF from '../Utils/PwdInputF';
 import useStore from '../Store/Store';
+import SEO from '../Components/SEO';
 
 const SignupPage = () => {
 
@@ -61,6 +62,17 @@ const SignupPage = () => {
     }
 
   return (
+    <>
+    <SEO
+      title="Sign Up | BeyondFikr"
+      description={`Create your BeyondFikr account to access professional therapy services, 
+                    training programs, and workshops. Join today to start your journey toward mental and emotional well-being.`}
+      keywords={`BeyondFikr sign up, Create BeyondFikr account, BeyondFikr registration, 
+                Join BeyondFikr, Mental health services sign up, Online therapy registration, 
+                BeyondFikr counseling account, Therapy session booking sign up, Training program registration BeyondFikr`}
+      url="https://beyondfikr.com/sign"
+    />
+
     <Box sx={{
         height: "calc(var(--vh, 1vh) * 100)",
         display: "flex",
@@ -191,6 +203,7 @@ const SignupPage = () => {
 
         </Box>
     </Box>
+    </>
   )
 }
 

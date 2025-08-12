@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, Paper, Divider, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
+import SEO from '../Components/SEO';
 
 const GradientHeader = ({ title, color1, color2 }) => (
   <Box
@@ -30,6 +31,18 @@ const PrivacyPolicy = () => {
   const theme = useTheme();
 
   return (
+    <>
+    <SEO
+      title="Privacy Policy | BeyondFikr"
+      description={`Read BeyondFikr's Privacy Policy to understand how we collect, use, and protect your 
+                  personal information. We are committed to ensuring your privacy while providing mental health 
+                  and therapy services.`}
+      keywords={`BeyondFikr privacy policy, Privacy policy for mental health services, Data protection BeyondFikr, 
+                BeyondFikr terms and privacy, Personal information security BeyondFikr, Mental health data privacy, 
+                BeyondFikr confidentiality policy, Therapy privacy guidelines, Online therapy privacy, 
+                BeyondFikr data handling practices, Secure counseling services BeyondFikr`}
+      url="https://beyondfikr.com/privacy"
+    />
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
@@ -139,6 +152,7 @@ const PrivacyPolicy = () => {
         </Box>
       </Paper>
     </motion.div>
+    </>
   );
 };
 

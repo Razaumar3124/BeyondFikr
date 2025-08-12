@@ -3,6 +3,7 @@ import React from 'react';
 import { Box, Tab, Tabs, Typography, Paper, Divider, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
+import SEO from '../Components/SEO';
 
 const GradientHeader = ({ title, color1, color2 }) => (
   <Box
@@ -142,6 +143,17 @@ const Policies = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
+    <>
+    <SEO
+      title="Terms and Conditions | BeyondFikr"
+      description={`Read BeyondFikr's Terms and Conditions to understand our policies, 
+                  service agreements, and user responsibilities regarding therapy sessions, training programs, 
+                  workshops, and mental health services.`}
+      keywords={`BeyondFikr terms and conditions, BeyondFikr policies, BeyondFikr service agreement, 
+                Therapy service terms, Counseling service terms, Training program terms, Workshop participation terms, 
+                BeyondFikr legal policies, User agreement BeyondFikr`}
+      url="https://beyondfikr.com/terms"
+    />
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
@@ -190,6 +202,7 @@ const Policies = () => {
         </Box>
       </Paper>
     </motion.div>
+    </>
   );
 };
 

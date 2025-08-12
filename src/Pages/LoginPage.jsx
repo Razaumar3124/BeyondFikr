@@ -16,6 +16,7 @@ import useStore from "../Store/Store";
 import bcrypt from "bcryptjs";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import SEO from "../Components/SEO";
 
 const LoginPage = () => {
   const theme = useTheme();
@@ -115,6 +116,16 @@ const LoginPage = () => {
   }, []);
 
   return (
+    <>
+    <SEO
+      title="Login | BeyondFikr"
+      description={`Access your BeyondFikr account to book therapy sessions, join training programs, 
+                  and manage your mental health services. Secure and private login for your well-being journey.`}
+      keywords={`BeyondFikr login, Login to BeyondFikr account, BeyondFikr therapy login, 
+                Mental health services login, Online therapy account access, Secure login BeyondFikr, 
+                BeyondFikr counseling login, Therapy session booking login, Training program login BeyondFikr`}
+      url="https://beyondfikr.com/log"
+    />
     <Box
       sx={{
         height: "calc(var(--vh, 1vh) * 100)",
@@ -278,6 +289,7 @@ const LoginPage = () => {
         </Typography>
       </Box>
     </Box>
+    </>
   );
 };
 

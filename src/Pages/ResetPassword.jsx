@@ -13,6 +13,7 @@ import useStore from '../Store/Store';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SEO from '../Components/SEO';
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   width: '100%',
@@ -99,6 +100,16 @@ const ResetPassword = () => {
   }, [resetSuccessMsg, resetErrorMsg, navigate]);
 
   return (
+    <>
+    <SEO
+      title="Reset Password | BeyondFikr"
+      description={`Securely reset your BeyondFikr account password to regain access to your mental health and 
+                  therapy services. Protect your account and ensure uninterrupted access to our online counseling platform.`}
+      keywords={`BeyondFikr reset password, Reset BeyondFikr account password, Password recovery BeyondFikr, 
+                BeyondFikr login help, Secure password reset BeyondFikr, Recover BeyondFikr account, Online therapy account recovery, 
+                BeyondFikr password assistance, Forgot password BeyondFikr, Mental health services login reset`}
+      url="https://beyondfikr.com/reset"
+    />
     <Box
       sx={{
         display: 'flex',
@@ -185,6 +196,7 @@ const ResetPassword = () => {
         </Box>
       </StyledPaper>
     </Box>
+    </>
   );
 };
 
